@@ -1,48 +1,25 @@
 {
-  "templateName": "",
-  "pageTitle": "",
-  "linesOfBusiness": [],
-  "page": {
-    "sections": [
-      {
-        "name": "Hero Section",
-        "modules": [
-          {
-            "type": "FullBleedImageCard",
+    "templateName": "",
+    "pageTitle": "",
+    "lineOfBusiness": "",
+    "templateComponents": {
+        "heroBanner": {
             "contentId": ""
-          }
-        ]
-      },
-      {
-        "name": "Reason to Believe Section",
-        "modules": [
-          {
-            "type": "FreeText",
+        },
+        "rtb1": {
             "contentId": ""
-          },
-          {
-            "type": "FreeText",
+        },
+        "rtb2": {
             "contentId": ""
-          },
-          {
-            "type": "FreeText",
+        },
+        "rtb3": {
             "contentId": ""
-          }
-        ]
-      },
-      {
-        "name": "Tile Section",
-        "modules": [
-          {
-            "type": "ImageCard",
+        },
+        "tile1": {
             "contentId": ""
-          },
-          {
-            "type": "ImageCard",
+        },
+        "tile2": {
             "contentId": ""
-          }
-        ]
-      }
-    ]
-  }
+        }
+    }
 }
