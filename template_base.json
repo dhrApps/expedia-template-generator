@@ -1,0 +1,48 @@
+{
+  "templateName": "",
+  "pageTitle": "",
+  "linesOfBusiness": [],
+  "page": {
+    "sections": [
+      {
+        "name": "Hero Section",
+        "modules": [
+          {
+            "type": "FullBleedImageCard",
+            "contentId": ""
+          }
+        ]
+      },
+      {
+        "name": "Reason to Believe Section",
+        "modules": [
+          {
+            "type": "FreeText",
+            "contentId": ""
+          },
+          {
+            "type": "FreeText",
+            "contentId": ""
+          },
+          {
+            "type": "FreeText",
+            "contentId": ""
+          }
+        ]
+      },
+      {
+        "name": "Tile Section",
+        "modules": [
+          {
+            "type": "ImageCard",
+            "contentId": ""
+          },
+          {
+            "type": "ImageCard",
+            "contentId": ""
+          }
+        ]
+      }
+    ]
+  }
+}
