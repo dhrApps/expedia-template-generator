@@ -36,15 +36,17 @@ selected_lobs = st.multiselect(
     options=["Stays", "Packages", "Things To Do", "Flights", "Cars", "Cruises"]
 )
 
-# Step 3: Content IDs
+# Step 3: Content IDs with helper tooltips
 st.header("Step 3: Enter Content IDs")
+st.markdown("Please enter the **Content ID** for each section below.")
+
 content_ids = {}
-content_ids['hero_banner'] = st.text_input("Hero Banner Content ID", placeholder="e.g., 123456")
-content_ids['rtb_1'] = st.text_input("RTB 1 Content ID", placeholder="e.g., 123457")
-content_ids['rtb_2'] = st.text_input("RTB 2 Content ID (optional)", placeholder="e.g., 123458")
-content_ids['rtb_3'] = st.text_input("RTB 3 Content ID", placeholder="e.g., 123459")
-content_ids['tile_1'] = st.text_input("Tile 1 Content ID", placeholder="e.g., 123460")
-content_ids['tile_2'] = st.text_input("Tile 2 Content ID", placeholder="e.g., 123461")
+content_ids['hero_banner'] = st.text_input("Hero Banner Content ID", placeholder="Big banner at top of the page with CTA")
+content_ids['rtb_1'] = st.text_input("RTB 1 Content ID", placeholder="First text block under banner (e.g., trust message)")
+content_ids['rtb_2'] = st.text_input("RTB 2 Content ID (optional)", placeholder="Second text block (optional)")
+content_ids['rtb_3'] = st.text_input("RTB 3 Content ID", placeholder="Third text block (e.g., help center CTA)")
+content_ids['tile_1'] = st.text_input("Tile 1 Content ID", placeholder="Left-side card (e.g., featured destination)")
+content_ids['tile_2'] = st.text_input("Tile 2 Content ID", placeholder="Right-side card (e.g., flexible booking promo)")
 
 # Content ID validation
 def is_valid_id(cid):
