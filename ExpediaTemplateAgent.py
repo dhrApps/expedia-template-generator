@@ -70,4 +70,4 @@ if st.button("Generate Template JSON"):
         st.success("Template JSON generated successfully! 🎉")
 
     except Exception as e:
-    st.error(f"⚠️ Error generating template: {repr(e)}")
+        st.error(f"⚠️ Error generating template: {repr(e)}")
