@@ -17,132 +17,59 @@
           "type": "REGION",
           "childNodes": [
             {
-              "type": "MODULE",
-              "attributes": [
-                { "name": "contentId", "value": "" },
-                { "name": "contentPurpose", "value": "Editorial" },
-                { "name": "view", "value": "banner-v2" },
-                { "name": "name", "value": "editorial" }
+              "type": "REGION",
+              "childNodes": [
+                {
+                  "type": "MODULE",
+                  "childNodes": [],
+                  "attributes": [
+                    {"name": "view", "value": "default"},
+                    {"name": "clientSideOnly", "value": "true"},
+                    {"name": "enableAddCar", "value": "false"},
+                    {"name": "showHotelsPWPToggle", "value": "true"},
+                    {"name": "name", "value": "wizard-hotel-pwa-v2"},
+                    {"name": "fixedLobTitle", "value": "true"},
+                    {"name": "hideLobTitle", "value": "false"},
+                    {"name": "enableMultiplePlaces", "value": "false"},
+                    {"name": "enableAddFlight", "value": "false"}
+                  ],
+                  "errors": {"errors": []},
+                  "class": "flex.manager.template.node.ModuleNode",
+                  "id": 471632
+                }
               ],
-              "class": "flex.manager.template.node.ModuleNode",
-              "id": 471638
+              "attributes": [
+                {"name": "view", "value": "storefront-wizard-bex"},
+                {"name": "width", "value": "100"},
+                {"name": "id", "value": "region"},
+                {"name": "brandModulePadding", "value": "bex_padding"},
+                {"name": "name", "value": "Search Wizards"}
+              ],
+              "errors": {"errors": []},
+              "class": "flex.manager.template.node.RegionNode",
+              "id": 471631
             }
           ],
           "attributes": [
-            { "name": "name", "value": "Hero Banner" }
+            {"name": "view", "value": "spacing-container"},
+            {"name": "backgroundColor", "value": "white"},
+            {"name": "width", "value": "100"},
+            {"name": "spacingContainer", "value": "unset"},
+            {"name": "id", "value": "region"},
+            {"name": "brandModulePadding", "value": "bex_padding"},
+            {"name": "hasNoInlineSpacing", "value": "true"},
+            {"name": "name", "value": "Main Wizard"},
+            {"name": "fullWidth", "value": "true"}
           ],
+          "errors": {"errors": []},
           "class": "flex.manager.template.node.RegionNode",
-          "id": 471637
-        },
-        {
-          "type": "REGION",
-          "childNodes": [
-            {
-              "type": "MODULE",
-              "attributes": [
-                { "name": "contentId", "value": "" },
-                { "name": "contentPurpose", "value": "FreeText" },
-                { "name": "view", "value": "single-column" },
-                { "name": "name", "value": "editorial" }
-              ],
-              "class": "flex.manager.template.node.ModuleNode",
-              "id": 471641
-            }
-          ],
-          "attributes": [
-            { "name": "name", "value": "RTB 1" }
-          ],
-          "class": "flex.manager.template.node.RegionNode",
-          "id": 471640
-        },
-        {
-          "type": "REGION",
-          "childNodes": [
-            {
-              "type": "MODULE",
-              "attributes": [
-                { "name": "contentId", "value": "" },
-                { "name": "contentPurpose", "value": "FreeText" },
-                { "name": "view", "value": "single-column" },
-                { "name": "name", "value": "editorial" }
-              ],
-              "class": "flex.manager.template.node.ModuleNode",
-              "id": 471643
-            }
-          ],
-          "attributes": [
-            { "name": "name", "value": "RTB 2" }
-          ],
-          "class": "flex.manager.template.node.RegionNode",
-          "id": 471642
-        },
-        {
-          "type": "REGION",
-          "childNodes": [
-            {
-              "type": "MODULE",
-              "attributes": [
-                { "name": "contentId", "value": "" },
-                { "name": "contentPurpose", "value": "FreeText" },
-                { "name": "view", "value": "single-column" },
-                { "name": "name", "value": "editorial" }
-              ],
-              "class": "flex.manager.template.node.ModuleNode",
-              "id": 471645
-            }
-          ],
-          "attributes": [
-            { "name": "name", "value": "RTB 3" }
-          ],
-          "class": "flex.manager.template.node.RegionNode",
-          "id": 471644
-        },
-        {
-          "type": "REGION",
-          "childNodes": [
-            {
-              "type": "MODULE",
-              "attributes": [
-                { "name": "contentId", "value": "" },
-                { "name": "contentPurpose", "value": "Cards" },
-                { "name": "view", "value": "on-canvas-banner" },
-                { "name": "name", "value": "editorial" }
-              ],
-              "class": "flex.manager.template.node.ModuleNode",
-              "id": 471649
-            }
-          ],
-          "attributes": [
-            { "name": "name", "value": "Tile 1" }
-          ],
-          "class": "flex.manager.template.node.RegionNode",
-          "id": 471648
-        },
-        {
-          "type": "REGION",
-          "childNodes": [
-            {
-              "type": "MODULE",
-              "attributes": [
-                { "name": "contentId", "value": "" },
-                { "name": "contentPurpose", "value": "Cards" },
-                { "name": "view", "value": "on-canvas-banner" },
-                { "name": "name", "value": "editorial" }
-              ],
-              "class": "flex.manager.template.node.ModuleNode",
-              "id": 471651
-            }
-          ],
-          "attributes": [
-            { "name": "name", "value": "Tile 2" }
-          ],
-          "class": "flex.manager.template.node.RegionNode",
-          "id": 471650
+          "id": 471630
         }
       ],
       "attributes": [
-        { "name": "id", "value": "flow" }
+        {"name": "id", "value": "flow"}
       ],
+      "errors": {"errors": []},
       "class": "flex.manager.template.node.LayoutNode",
       "id": 471629
     },
@@ -150,7 +77,7 @@
     "softLockStart": null,
     "softLockEnd": null,
     "groups": [],
-    "contextExperiments": [],
+    "contextExperiments": ["VAC_PhaseThree_EGTnL"],
     "warningMsg": []
   }
 ]
