@@ -1,33 +1,32 @@
 import streamlit as st
 import json
+import copy
 
 # Load the corrected base JSON template
 try:
     with open("fixed_base_template.json", "r") as f:
         base_template = json.load(f)
-    st.success("✅ Base template loaded successfully.")
+        st.success("✅ Base template loaded successfully.")
 except Exception as e:
-    st.error(f"⚠️ Error loading base template: {repr(e)}")
     base_template = None
+    st.error(f"⚠️ Error loading base template: {repr(e)}")
 
-# App title and instructions
-st.title("🧩 Expedia Landing Page Template Generator")
-st.write("Create a fully structured landing page template with ease. Fill in the content IDs and download a ready-to-upload JSON.")
+# App Title
+st.title("🌍 Expedia Landing Page Template Generator")
+
+# Intro Text
+st.write("Create a fully structured landing page template with ease. Fill in the content IDs and page info, then download a ready-to-upload JSON.")
 
 # Input fields
-template_name = st.text_input("Template Name", help="Unique template name (e.g., LuxuryEscapes_Homepage)")
-page_title = st.text_input("Page Title", help="Displayed on browser tab and search engines.")
+template_name = st.text_input("Template Name", help="Unique and descriptive name for the template.")
+page_title = st.text_input("Page Title", help="This title appears on the browser tab and search engines.")
+header_text = st.text_input("Header", help="Main heading on the landing page.")
+brand = st.text_input("Brand", value="GPS", help="Brand identifier (e.g., GPS, EAP, etc.)")
+pos = st.text_input("POS", value="CATHAYPACIFIC_HK", help="Point of Sale (e.g., CATHAYPACIFIC_HK)")
+locale = st.text_input("Locale", value="EN_HK", help="Locale code (e.g., EN_HK)")
 
-brand = st.text_input("Brand", value="GPS")
-pos = st.text_input("POS", value="CATHAYPACIFIC_HK")
-locale = st.text_input("Locale", value="EN_HK")
-
-# Line of Business selection
-lob_options = ["Stays", "Packages", "Things to Do", "Cars", "Flights"]
-selected_lob = st.selectbox("Line of Business", options=lob_options, help="Choose the Line of Business for this landing page.")
-
-# Component Content IDs
-st.subheader("📋 Component Content IDs (with helper tooltips)")
+# Component Content IDs with helper tooltips
+st.subheader("📋 Component Prompts (with helper tooltips)")
 hero_banner = st.text_input("Hero Banner Content ID", help="Big banner at top of the page with CTA")
 rtb1 = st.text_input("RTB 1 Content ID", help="First text block under banner (e.g., trust message)")
 rtb2 = st.text_input("RTB 2 Content ID", help="Second text block (optional)")
@@ -36,42 +35,56 @@ tile1 = st.text_input("Tile 1 Content ID", help="Left-side card (e.g., featured 
 tile2 = st.text_input("Tile 2 Content ID", help="Right-side card (e.g., flexible booking promo)")
 
 # Button to generate JSON
-if st.button("Generate Template JSON"):
+if st.button("🚀 Generate Template JSON"):
     try:
-        if not base_template or not isinstance(base_template, list) or len(base_template) == 0:
-            st.error("⚠️ Base template is empty or malformed.")
-        else:
-            populated_template = base_template[0]
-            populated_template["name"] = template_name
-            populated_template["title"] = page_title
-            populated_template["brand"] = brand
-            populated_template["pos"] = pos
-            populated_template["locale"] = locale
+        if base_template and isinstance(base_template, list) and len(base_template) > 0:
+            # Deep copy to avoid modifying the original
+            populated_template = copy.deepcopy(base_template)
 
-            # Traverse to update content IDs
-            def update_content_id_by_purpose(node, purpose, new_id):
+            # Fill in user inputs
+            populated_template[0]["name"] = template_name
+            populated_template[0]["title"] = page_title
+            populated_template[0]["header"] = header_text
+            populated_template[0]["brand"] = brand
+            populated_template[0]["pos"] = pos
+            populated_template[0]["locale"] = locale
+
+            # Traverse the JSON and replace contentId fields
+            def replace_content_id(node, component_name, new_id):
                 if isinstance(node, dict):
-                    if node.get("type") == "MODULE":
+                    if node.get("name", "").lower() == component_name.lower():
                         for attr in node.get("attributes", []):
-                            if attr.get("name") == "contentPurpose" and attr.get("value") == purpose:
-                                for content_attr in node["attributes"]:
-                                    if content_attr.get("name") == "contentId":
-                                        content_attr["value"] = new_id
-                    for key in node:
-                        update_content_id_by_purpose(node[key], purpose, new_id)
+                            if attr.get("name") == "contentId":
+                                attr["value"] = new_id
+                    for key, value in node.items():
+                        replace_content_id(value, component_name, new_id)
                 elif isinstance(node, list):
                     for item in node:
-                        update_content_id_by_purpose(item, purpose, new_id)
+                        replace_content_id(item, component_name, new_id)
 
-            # Update IDs
-            update_content_id_by_purpose(populated_template, "Editorial", hero_banner)
-            update_content_id_by_purpose(populated_template, "FreeText", rtb1)
-            update_content_id_by_purpose(populated_template, "FreeText", rtb2)
-            update_content_id_by_purpose(populated_template, "FreeText", rtb3)
-            update_content_id_by_purpose(populated_template, "Cards", tile1)
-            update_content_id_by_purpose(populated_template, "Cards", tile2)
+            # Update all components with provided content IDs
+            component_ids = {
+                "heroBanner": hero_banner,
+                "rtb1": rtb1,
+                "rtb2": rtb2,
+                "rtb3": rtb3,
+                "tile1": tile1,
+                "tile2": tile2
+            }
 
-            output_json = json.dumps([populated_template], indent=2)
-            st.download_button("📥 Download JSON File", output_json, file_name="generated_template.json", mime="application/json")
+            for component, cid in component_ids.items():
+                if cid.strip():
+                    replace_content_id(populated_template, component, cid.strip())
+
+            # Downloadable JSON file
+            json_str = json.dumps(populated_template, indent=4)
+            st.download_button(
+                label="📥 Download Template JSON",
+                data=json_str,
+                file_name=f"{template_name}.json",
+                mime="application/json"
+            )
+        else:
+            st.warning("⚠️ Base template is empty or malformed.")
     except Exception as e:
         st.error(f"⚠️ Error generating template: {repr(e)}")
