@@ -1,25 +1,35 @@
-{
-    "templateName": "",
-    "pageTitle": "",
-    "lineOfBusiness": "",
-    "templateComponents": {
-        "heroBanner": {
-            "contentId": ""
-        },
-        "rtb1": {
-            "contentId": ""
-        },
-        "rtb2": {
-            "contentId": ""
-        },
-        "rtb3": {
-            "contentId": ""
-        },
-        "tile1": {
-            "contentId": ""
-        },
-        "tile2": {
-            "contentId": ""
+[
+  {
+    "brand": "GPS",
+    "pos": "CATHAYPACIFIC_HK",
+    "locale": "EN_HK",
+    "name": "",
+    "title": "",
+    "header": "",
+    "subHeadline": null,
+    "metaDescription": null,
+    "metaKeywords": null,
+    "metaRobots": null,
+    "flexNode": {
+      "type": "LAYOUT",
+      "childNodes": [],
+      "attributes": [
+        {
+          "name": "id",
+          "value": "flow"
         }
-    }
-}
+      ],
+      "errors": {
+        "errors": []
+      },
+      "class": "flex.manager.template.node.LayoutNode",
+      "id": 471629
+    },
+    "softLockedBy": null,
+    "softLockStart": null,
+    "softLockEnd": null,
+    "groups": [],
+    "contextExperiments": [],
+    "warningMsg": []
+  }
+]
