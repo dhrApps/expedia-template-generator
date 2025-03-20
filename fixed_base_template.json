@@ -12,16 +12,137 @@
     "metaRobots": null,
     "flexNode": {
       "type": "LAYOUT",
-      "childNodes": [],
-      "attributes": [
+      "childNodes": [
         {
-          "name": "id",
-          "value": "flow"
+          "type": "REGION",
+          "childNodes": [
+            {
+              "type": "MODULE",
+              "attributes": [
+                { "name": "contentId", "value": "" },
+                { "name": "contentPurpose", "value": "Editorial" },
+                { "name": "view", "value": "banner-v2" },
+                { "name": "name", "value": "editorial" }
+              ],
+              "class": "flex.manager.template.node.ModuleNode",
+              "id": 471638
+            }
+          ],
+          "attributes": [
+            { "name": "name", "value": "Hero Banner" }
+          ],
+          "class": "flex.manager.template.node.RegionNode",
+          "id": 471637
+        },
+        {
+          "type": "REGION",
+          "childNodes": [
+            {
+              "type": "MODULE",
+              "attributes": [
+                { "name": "contentId", "value": "" },
+                { "name": "contentPurpose", "value": "FreeText" },
+                { "name": "view", "value": "single-column" },
+                { "name": "name", "value": "editorial" }
+              ],
+              "class": "flex.manager.template.node.ModuleNode",
+              "id": 471641
+            }
+          ],
+          "attributes": [
+            { "name": "name", "value": "RTB 1" }
+          ],
+          "class": "flex.manager.template.node.RegionNode",
+          "id": 471640
+        },
+        {
+          "type": "REGION",
+          "childNodes": [
+            {
+              "type": "MODULE",
+              "attributes": [
+                { "name": "contentId", "value": "" },
+                { "name": "contentPurpose", "value": "FreeText" },
+                { "name": "view", "value": "single-column" },
+                { "name": "name", "value": "editorial" }
+              ],
+              "class": "flex.manager.template.node.ModuleNode",
+              "id": 471643
+            }
+          ],
+          "attributes": [
+            { "name": "name", "value": "RTB 2" }
+          ],
+          "class": "flex.manager.template.node.RegionNode",
+          "id": 471642
+        },
+        {
+          "type": "REGION",
+          "childNodes": [
+            {
+              "type": "MODULE",
+              "attributes": [
+                { "name": "contentId", "value": "" },
+                { "name": "contentPurpose", "value": "FreeText" },
+                { "name": "view", "value": "single-column" },
+                { "name": "name", "value": "editorial" }
+              ],
+              "class": "flex.manager.template.node.ModuleNode",
+              "id": 471645
+            }
+          ],
+          "attributes": [
+            { "name": "name", "value": "RTB 3" }
+          ],
+          "class": "flex.manager.template.node.RegionNode",
+          "id": 471644
+        },
+        {
+          "type": "REGION",
+          "childNodes": [
+            {
+              "type": "MODULE",
+              "attributes": [
+                { "name": "contentId", "value": "" },
+                { "name": "contentPurpose", "value": "Cards" },
+                { "name": "view", "value": "on-canvas-banner" },
+                { "name": "name", "value": "editorial" }
+              ],
+              "class": "flex.manager.template.node.ModuleNode",
+              "id": 471649
+            }
+          ],
+          "attributes": [
+            { "name": "name", "value": "Tile 1" }
+          ],
+          "class": "flex.manager.template.node.RegionNode",
+          "id": 471648
+        },
+        {
+          "type": "REGION",
+          "childNodes": [
+            {
+              "type": "MODULE",
+              "attributes": [
+                { "name": "contentId", "value": "" },
+                { "name": "contentPurpose", "value": "Cards" },
+                { "name": "view", "value": "on-canvas-banner" },
+                { "name": "name", "value": "editorial" }
+              ],
+              "class": "flex.manager.template.node.ModuleNode",
+              "id": 471651
+            }
+          ],
+          "attributes": [
+            { "name": "name", "value": "Tile 2" }
+          ],
+          "class": "flex.manager.template.node.RegionNode",
+          "id": 471650
         }
       ],
-      "errors": {
-        "errors": []
-      },
+      "attributes": [
+        { "name": "id", "value": "flow" }
+      ],
       "class": "flex.manager.template.node.LayoutNode",
       "id": 471629
     },
