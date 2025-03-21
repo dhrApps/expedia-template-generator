@@ -1,11 +1,11 @@
 [
   {
-    "brand": "GPS",
-    "pos": "PHILIPPINEAIRLINES_PH",
-    "locale": "EN_PH",
-    "name": "DSTest6_E4P-PHILIPPINEAIRLINES_PH-EN_PHBlossom-Homepage-IndexFollow",
-    "title": "Test3 Philippineairlines | Earn Miles on Your Next Hotel Stay or Vacation Package",
-    "header": "Test Earn Miles on Your Next Hotel Stay or Vacation Package",
+    "brand": "BRAND_PLACEHOLDER",
+    "pos": "POS_PLACEHOLDER",
+    "locale": "LOCALE_PLACEHOLDER",
+    "name": "TEMPLATE_NAME_PLACEHOLDER",
+    "title": "PAGE_TITLE_PLACEHOLDER",
+    "header": "HEADER_PLACEHOLDER",
     "subHeadline": null,
     "metaDescription": null,
     "metaKeywords": null,
@@ -64,7 +64,7 @@
                     "errors": []
                   },
                   "class": "flex.manager.template.node.ModuleNode",
-                  "id": "TEMPLATE_ID_PLACEHOLDER"
+                  "id": 0
                 },
                 {
                   "type": "MODULE",
@@ -103,7 +103,7 @@
                     "errors": []
                   },
                   "class": "flex.manager.template.node.ModuleNode",
-                  "id": "TEMPLATE_ID_PLACEHOLDER"
+                  "id": 0
                 },
                 {
                   "type": "MODULE",
@@ -130,7 +130,7 @@
                     "errors": []
                   },
                   "class": "flex.manager.template.node.ModuleNode",
-                  "id": "TEMPLATE_ID_PLACEHOLDER"
+                  "id": 0
                 }
               ],
               "attributes": [
@@ -159,7 +159,7 @@
                 "errors": []
               },
               "class": "flex.manager.template.node.RegionNode",
-              "id": "TEMPLATE_ID_PLACEHOLDER"
+              "id": 0
             },
             {
               "type": "REGION",
@@ -205,7 +205,7 @@
                     "errors": []
                   },
                   "class": "flex.manager.template.node.ModuleNode",
-                  "id": "TEMPLATE_ID_PLACEHOLDER"
+                  "id": 0
                 }
               ],
               "attributes": [
@@ -238,7 +238,7 @@
                 "errors": []
               },
               "class": "flex.manager.template.node.RegionNode",
-              "id": "TEMPLATE_ID_PLACEHOLDER"
+              "id": 0
             }
           ],
           "attributes": [
@@ -283,7 +283,7 @@
             "errors": []
           },
           "class": "flex.manager.template.node.RegionNode",
-          "id": "TEMPLATE_ID_PLACEHOLDER"
+          "id": 0
         },
         {
           "type": "REGION",
@@ -325,7 +325,7 @@
                 "errors": []
               },
               "class": "flex.manager.template.node.ModuleNode",
-              "id": "TEMPLATE_ID_PLACEHOLDER"
+              "id": 0
             }
           ],
           "attributes": [
@@ -362,7 +362,7 @@
             "errors": []
           },
           "class": "flex.manager.template.node.RegionNode",
-          "id": "TEMPLATE_ID_PLACEHOLDER"
+          "id": 0
         },
         {
           "type": "REGION",
@@ -395,7 +395,7 @@
                     "errors": []
                   },
                   "class": "flex.manager.template.node.ModuleNode",
-                  "id": "TEMPLATE_ID_PLACEHOLDER"
+                  "id": 0
                 }
               ],
               "attributes": [
@@ -420,7 +420,7 @@
                 "errors": []
               },
               "class": "flex.manager.template.node.RegionNode",
-              "id": "TEMPLATE_ID_PLACEHOLDER"
+              "id": 0
             },
             {
               "type": "REGION",
@@ -450,7 +450,7 @@
                     "errors": []
                   },
                   "class": "flex.manager.template.node.ModuleNode",
-                  "id": "TEMPLATE_ID_PLACEHOLDER"
+                  "id": 0
                 }
               ],
               "attributes": [
@@ -475,7 +475,7 @@
                 "errors": []
               },
               "class": "flex.manager.template.node.RegionNode",
-              "id": "TEMPLATE_ID_PLACEHOLDER"
+              "id": 0
             },
             {
               "type": "REGION",
@@ -509,7 +509,7 @@
                     "errors": []
                   },
                   "class": "flex.manager.template.node.ModuleNode",
-                  "id": "TEMPLATE_ID_PLACEHOLDER"
+                  "id": 0
                 }
               ],
               "attributes": [
@@ -534,7 +534,7 @@
                 "errors": []
               },
               "class": "flex.manager.template.node.RegionNode",
-              "id": "TEMPLATE_ID_PLACEHOLDER"
+              "id": 0
             }
           ],
           "attributes": [
@@ -559,7 +559,7 @@
             "errors": []
           },
           "class": "flex.manager.template.node.RegionNode",
-          "id": "TEMPLATE_ID_PLACEHOLDER"
+          "id": 0
         },
         {
           "type": "REGION",
@@ -615,7 +615,7 @@
                         "errors": []
                       },
                       "class": "flex.manager.template.node.ModuleNode",
-                      "id": "TEMPLATE_ID_PLACEHOLDER"
+                      "id": 0
                     }
                   ],
                   "attributes": [
@@ -648,7 +648,7 @@
                     "errors": []
                   },
                   "class": "flex.manager.template.node.RegionNode",
-                  "id": "TEMPLATE_ID_PLACEHOLDER"
+                  "id": 0
                 },
                 {
                   "type": "REGION",
@@ -698,7 +698,7 @@
                         "errors": []
                       },
                       "class": "flex.manager.template.node.ModuleNode",
-                      "id": "TEMPLATE_ID_PLACEHOLDER"
+                      "id": 0
                     }
                   ],
                   "attributes": [
@@ -731,7 +731,7 @@
                     "errors": []
                   },
                   "class": "flex.manager.template.node.RegionNode",
-                  "id": "TEMPLATE_ID_PLACEHOLDER"
+                  "id": 0
                 }
               ],
               "attributes": [
@@ -756,7 +756,7 @@
                 "errors": []
               },
               "class": "flex.manager.template.node.RegionNode",
-              "id": "TEMPLATE_ID_PLACEHOLDER"
+              "id": 0
             }
           ],
           "attributes": [
@@ -785,7 +785,7 @@
             "errors": []
           },
           "class": "flex.manager.template.node.RegionNode",
-          "id": "TEMPLATE_ID_PLACEHOLDER"
+          "id": 0
         },
         {
           "type": "REGION",
@@ -808,7 +808,7 @@
             "errors": []
           },
           "class": "flex.manager.template.node.RegionNode",
-          "id": "TEMPLATE_ID_PLACEHOLDER"
+          "id": 0
         },
         {
           "type": "REGION",
@@ -830,7 +830,7 @@
                 "errors": []
               },
               "class": "flex.manager.template.node.ModuleNode",
-              "id": "TEMPLATE_ID_PLACEHOLDER"
+              "id": 0
             }
           ],
           "attributes": [
@@ -855,7 +855,7 @@
             "errors": []
           },
           "class": "flex.manager.template.node.RegionNode",
-          "id": "TEMPLATE_ID_PLACEHOLDER"
+          "id": 0
         }
       ],
       "attributes": [
@@ -868,7 +868,7 @@
         "errors": []
       },
       "class": "flex.manager.template.node.LayoutNode",
-      "id": "TEMPLATE_ID_PLACEHOLDER"
+      "id": 0
     },
     "softLockedBy": null,
     "softLockStart": null,
@@ -877,6 +877,7 @@
     "contextExperiments": [
       "VAC_PhaseThree_EGTnL"
     ],
-    "warningMsg": []
+    "warningMsg": [],
+    "id": "TEMPLATE_ID_PLACEHOLDER"
   }
 ]
