@@ -28,11 +28,11 @@ locale = st.text_input("Locale", value="EN_HK", help="Locale code (e.g., EN_HK)"
 # Component Content IDs with helper tooltips
 st.subheader("📋 Component Prompts (with helper tooltips)")
 hero_banner = st.text_input("Hero Banner Content ID", help="Big banner at top of the page with CTA")
-rtb1 = st.text_input("RTB 1 Content ID", help="First text block under banner (e.g., trust message)")
-rtb2 = st.text_input("RTB 2 Content ID", help="Second text block (optional)")
-rtb3 = st.text_input("RTB 3 Content ID", help="Third text block (e.g., help center CTA)")
-tile1 = st.text_input("Tile 1 Content ID", help="Left-side card (e.g., featured destination)")
-tile2 = st.text_input("Tile 2 Content ID", help="Right-side card (e.g., flexible booking promo)")
+rtb1 = st.text_input("Reason To Believe 1 (RTB 1) Content ID", help="First text block under banner (e.g., trust message)")
+rtb2 = st.text_input("Reason To Believe 2 (RTB 2) Content ID", help="Second text block (optional)")
+rtb3 = st.text_input("Reason To Believe 3 (RTB 3) Content ID", help="Third text block (e.g., help center CTA)")
+tile1 = st.text_input("Canvas Group Tile 1 Content ID", help="Left-side card (e.g., featured destination)")
+tile2 = st.text_input("Canvas Group Tile 2 Content ID", help="Right-side card (e.g., flexible booking promo)")
 
 # Button to generate JSON
 if st.button("🚀 Generate Template JSON"):
