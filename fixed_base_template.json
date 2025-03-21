@@ -1,10 +1,10 @@
 [
   {
     "brand": "GPS",
-    "pos": "CATHAYPACIFIC_HK",
-    "locale": "EN_HK",
-    "name": "DSTest_E4P-CATHAYPACIFIC_HK-EN_HKBlossom-Homepage-IndexFollow",
-    "title": "Test Cathay Holidays | Earn Miles on Your Next Hotel Stay or Vacation Package",
+    "pos": "PHILIPPINEAIRLINES_PH",
+    "locale": "EN_PH",
+    "name": "DSTest6_E4P-PHILIPPINEAIRLINES_PH-EN_PHBlossom-Homepage-IndexFollow",
+    "title": "Test3 Philippineairlines | Earn Miles on Your Next Hotel Stay or Vacation Package",
     "header": "Test Earn Miles on Your Next Hotel Stay or Vacation Package",
     "subHeadline": null,
     "metaDescription": null,
@@ -294,7 +294,7 @@
               "attributes": [
                 {
                   "name": "contentId",
-                  "value": "4665431"
+                  "value": "4665503"
                 },
                 {
                   "name": "contentPurpose",
@@ -376,7 +376,7 @@
                   "attributes": [
                     {
                       "name": "contentId",
-                      "value": "4665432"
+                      "value": "4665506"
                     },
                     {
                       "name": "contentPurpose",
@@ -431,7 +431,7 @@
                   "attributes": [
                     {
                       "name": "contentId",
-                      "value": "4665433"
+                      "value": "4665506"
                     },
                     {
                       "name": "contentPurpose",
@@ -490,7 +490,7 @@
                     },
                     {
                       "name": "contentId",
-                      "value": "4665434"
+                      "value": "4665506"
                     },
                     {
                       "name": "contentPurpose",
@@ -580,7 +580,7 @@
                         },
                         {
                           "name": "contentId",
-                          "value": "4665435"
+                          "value": "4665508"
                         },
                         {
                           "name": "contentPurpose",
@@ -663,7 +663,7 @@
                         },
                         {
                           "name": "contentId",
-                          "value": "4665436"
+                          "value": "4665508"
                         },
                         {
                           "name": "contentPurpose",
