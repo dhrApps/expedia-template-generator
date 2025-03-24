@@ -231,7 +231,7 @@
                 },
                 {
                   "name": "name",
-                  "value": "Test WIZARD Footer - Slim"
+                  "value": "WIZARD Footer - Slim"
                 }
               ],
               "errors": {
@@ -294,7 +294,7 @@
               "attributes": [
                 {
                   "name": "contentId",
-                  "value": "CONTENT_ID_PLACEHOLDER"
+                  "value": ""
                 },
                 {
                   "name": "contentPurpose",
@@ -355,7 +355,7 @@
             },
             {
               "name": "name",
-              "value": "Test Full Bleed Image Card"
+              "value": "Hero Full Bleed Banner"
             }
           ],
           "errors": {
@@ -376,7 +376,7 @@
                   "attributes": [
                     {
                       "name": "contentId",
-                      "value": "CONTENT_ID_PLACEHOLDER"
+                      "value": ""
                     },
                     {
                       "name": "contentPurpose",
@@ -413,7 +413,7 @@
                 },
                 {
                   "name": "name",
-                  "value": "Test RTB 1"
+                  "value": "RTB 1"
                 }
               ],
               "errors": {
@@ -431,7 +431,7 @@
                   "attributes": [
                     {
                       "name": "contentId",
-                      "value": "CONTENT_ID_PLACEHOLDER"
+                      "value": ""
                     },
                     {
                       "name": "contentPurpose",
@@ -468,7 +468,7 @@
                 },
                 {
                   "name": "name",
-                  "value": "Test RTB 2"
+                  "value": "RTB 2"
                 }
               ],
               "errors": {
@@ -490,7 +490,7 @@
                     },
                     {
                       "name": "contentId",
-                      "value": "CONTENT_ID_PLACEHOLDER"
+                      "value": ""
                     },
                     {
                       "name": "contentPurpose",
@@ -527,7 +527,7 @@
                 },
                 {
                   "name": "name",
-                  "value": "Test RTB 3"
+                  "value": "RTB 3"
                 }
               ],
               "errors": {
@@ -552,7 +552,7 @@
             },
             {
               "name": "name",
-              "value": "Test Reasons To Believe"
+              "value": "Reasons To Believe"
             }
           ],
           "errors": {
@@ -580,7 +580,7 @@
                         },
                         {
                           "name": "contentId",
-                          "value": "CONTENT_ID_PLACEHOLDER"
+                          "value": ""
                         },
                         {
                           "name": "contentPurpose",
@@ -663,7 +663,7 @@
                         },
                         {
                           "name": "contentId",
-                          "value": "CONTENT_ID_PLACEHOLDER"
+                          "value": ""
                         },
                         {
                           "name": "contentPurpose",
@@ -749,7 +749,7 @@
                 },
                 {
                   "name": "name",
-                  "value": "Test Editorial On Canvas Group"
+                  "value": "Editorial On Canvas Group"
                 }
               ],
               "errors": {
@@ -778,7 +778,7 @@
             },
             {
               "name": "name",
-              "value": "Test Editorial On Canvas Banner"
+              "value": "Editorial on Canvas Banner"
             }
           ],
           "errors": {
@@ -801,7 +801,7 @@
             },
             {
               "name": "name",
-              "value": "Test Recent Searches"
+              "value": "Recent Searches"
             }
           ],
           "errors": {
@@ -848,7 +848,7 @@
             },
             {
               "name": "name",
-              "value": "Test Footer"
+              "value": "Footer"
             }
           ],
           "errors": {
@@ -877,6 +877,12 @@
     "contextExperiments": [
       "VAC_PhaseThree_EGTnL"
     ],
-    "warningMsg": []
+    "warningMsg": [],
+    "heroBannerContentId": "",
+    "rtb1ContentId": "",
+    "rtb2ContentId": "",
+    "rtb3ContentId": "",
+    "tile1ContentId": "",
+    "tile2ContentId": ""
   }
 ]
