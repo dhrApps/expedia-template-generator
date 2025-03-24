@@ -877,12 +877,6 @@
     "contextExperiments": [
       "VAC_PhaseThree_EGTnL"
     ],
-    "warningMsg": [],
-    "heroBannerContentId": "CONTENT_ID_PLACEHOLDER",
-    "rtb1ContentId": "CONTENT_ID_PLACEHOLDER",
-    "rtb2ContentId": "CONTENT_ID_PLACEHOLDER",
-    "rtb3ContentId": "CONTENT_ID_PLACEHOLDER",
-    "tile1ContentId": "CONTENT_ID_PLACEHOLDER",
-    "tile2ContentId": "CONTENT_ID_PLACEHOLDER"
+    "warningMsg": []
   }
 ]
