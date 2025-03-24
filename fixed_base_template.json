@@ -1,11 +1,11 @@
 [
   {
-    "brand": "BRAND_PLACEHOLDER",
-    "pos": "POS_PLACEHOLDER",
-    "locale": "LOCALE_PLACEHOLDER",
+    "brand": "GPS",
+    "pos": "PHILIPPINEAIRLINES_PH",
+    "locale": "EN_PH",
     "name": "TEMPLATE_NAME_PLACEHOLDER",
-    "title": "PAGE_TITLE_PLACEHOLDER",
-    "header": "HEADER_PLACEHOLDER",
+    "title": "TEMPLATE_PAGE_TITLE_PLACEHOLDER",
+    "header": "TEMPLATE_HEADER_PLACEHOLDER",
     "subHeadline": null,
     "metaDescription": null,
     "metaKeywords": null,
@@ -294,7 +294,7 @@
               "attributes": [
                 {
                   "name": "contentId",
-                  "value": "4665503"
+                  "value": "CONTENT_ID_PLACEHOLDER"
                 },
                 {
                   "name": "contentPurpose",
@@ -339,7 +339,7 @@
             },
             {
               "name": "backgroundImage",
-              "value": ""
+              "value": "https://forever.travel-assets.com/flex/flexmanager/images/2023/03/08/TPL_2.jpeg"
             },
             {
               "name": "id",
@@ -376,7 +376,7 @@
                   "attributes": [
                     {
                       "name": "contentId",
-                      "value": "4665506"
+                      "value": "CONTENT_ID_PLACEHOLDER"
                     },
                     {
                       "name": "contentPurpose",
@@ -431,7 +431,7 @@
                   "attributes": [
                     {
                       "name": "contentId",
-                      "value": "4665506"
+                      "value": "CONTENT_ID_PLACEHOLDER"
                     },
                     {
                       "name": "contentPurpose",
@@ -486,11 +486,11 @@
                   "attributes": [
                     {
                       "name": "cardLinkUrl",
-                      "value": ""
+                      "value": "https://hk.holidaydeals.cathaypacific.com/helpcenter/?rfrr=HK.EN.Homepage.CathayPacific.HB.HelpCenter"
                     },
                     {
                       "name": "contentId",
-                      "value": "4665506"
+                      "value": "CONTENT_ID_PLACEHOLDER"
                     },
                     {
                       "name": "contentPurpose",
@@ -580,7 +580,7 @@
                         },
                         {
                           "name": "contentId",
-                          "value": "4665508"
+                          "value": "CONTENT_ID_PLACEHOLDER"
                         },
                         {
                           "name": "contentPurpose",
@@ -663,7 +663,7 @@
                         },
                         {
                           "name": "contentId",
-                          "value": "4665508"
+                          "value": "CONTENT_ID_PLACEHOLDER"
                         },
                         {
                           "name": "contentPurpose",
@@ -877,7 +877,6 @@
     "contextExperiments": [
       "VAC_PhaseThree_EGTnL"
     ],
-    "warningMsg": [],
-    "id": "TEMPLATE_ID_PLACEHOLDER"
+    "warningMsg": []
   }
 ]
