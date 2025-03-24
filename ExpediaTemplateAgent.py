@@ -22,7 +22,7 @@ page_title = st.text_input("Page Title", help="This title appears on the browser
 header_text = st.text_input("Header", help="Main heading shown on the landing page.")
 brand = st.text_input("Brand", help="Brand code, e.g., GPS")
 pos = st.text_input("POS", help="Point of Sale, e.g., CATHAYPACIFIC_HK")
-locale = st.text_input("Locale", help="Locale code, e.g., EN_HK")
+locale = st.text_input("Locale", help="Locale code, e.g., en_HK")
 
 # Component Content ID Inputs (with helper tooltips)
 st.subheader("📋 Component Content IDs (with helper tooltips)")
