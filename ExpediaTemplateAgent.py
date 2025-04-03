@@ -1,59 +1,882 @@
-import streamlit as st
-import json
-
-# Load the corrected base JSON template
-try:
-    with open("fixed_base_template.json", "r") as f:
-        base_template = json.load(f)
-    st.success("✅ Base template loaded successfully.")
-except Exception as e:
-    st.error(f"⚠️ Error loading base template: {repr(e)}")
-    base_template = None
-
-# Title
-st.title("🌍 WLT Landing Page Template Generator")
-
-# Intro
-st.write("Create a fully structured landing page template with ease. Fill in the content IDs and download a ready-to-upload JSON.")
-
-# Input fields
-template_name = st.text_input("Template Name", help="Give your template a unique and descriptive name.")
-page_title = st.text_input("Page Title", help="This title appears on the browser tab and search engines.")
-header_text = st.text_input("Header", help="Main heading shown on the landing page.")
-brand = st.text_input("Brand", help="Brand code, e.g., GPS")
-pos = st.text_input("POS", help="Point of Sale, e.g., CATHAYPACIFIC_HK")
-locale = st.text_input("Locale", help="Locale code, e.g., en_HK")
-
-# Component Content ID Inputs (with helper tooltips)
-st.subheader("📋 Component Content IDs (with helper tooltips)")
-hero_banner = st.text_input("Hero Banner Content ID", help="Big banner at top of the page with CTA")
-rtb1 = st.text_input("Reason To Believe 1 (RTB 1) Content ID", help="First text block under banner (e.g., trust message)")
-rtb2 = st.text_input("Reason To Believe 2 (RTB 2) Content ID", help="Second text block (optional)")
-rtb3 = st.text_input("Reason To Believe 3 (RTB 3) Content ID", help="Third text block (e.g., help center CTA)")
-tile1 = st.text_input("Canvas Group Tile 1 Content ID", help="Left-side card (e.g., featured destination)")
-tile2 = st.text_input("Canvas Group Tile 2 Content ID", help="Right-side card (e.g., flexible booking promo)")
-
-# Generate JSON
-if st.button("Generate Template JSON"):
-    try:
-        if base_template:
-            populated_template = base_template.copy()
-            populated_template[0]["name"] = template_name
-            populated_template[0]["title"] = page_title
-            populated_template[0]["header"] = header_text
-            populated_template[0]["brand"] = brand
-            populated_template[0]["pos"] = pos
-            populated_template[0]["locale"] = locale
-
-            # Assign content IDs to placeholders (example placement)
-            populated_template[0]["heroBannerContentId"] = hero_banner
-            populated_template[0]["rtb1ContentId"] = rtb1
-            populated_template[0]["rtb2ContentId"] = rtb2
-            populated_template[0]["rtb3ContentId"] = rtb3
-            populated_template[0]["tile1ContentId"] = tile1
-            populated_template[0]["tile2ContentId"] = tile2
-
-            json_str = json.dumps(populated_template, indent=4)
-            st.download_button("📥 Download JSON", data=json_str, file_name="generated_template.json", mime="application/json")
-    except Exception as e:
-        st.error(f"⚠️ Error generating template: {repr(e)}")
+[
+  {
+    "brand": "GPS",
+    "pos": "PHILIPPINEAIRLINES_PH",
+    "locale": "en_PH",
+    "name": "DSTest16_E4P-PHILIPPINEAIRLINES_PH-EN_PHBlossom-Homepage-IndexFollow",
+    "title": "Test Philippineairlines | Earn Miles on Your Next Hotel Stay or Vacation Package",
+    "header": "Earn 100 miles for every $1 spent",
+    "subHeadline": null,
+    "metaDescription": null,
+    "metaKeywords": null,
+    "metaRobots": null,
+    "flexNode": {
+      "type": "LAYOUT",
+      "childNodes": [
+        {
+          "type": "REGION",
+          "childNodes": [
+            {
+              "type": "REGION",
+              "childNodes": [
+                {
+                  "type": "MODULE",
+                  "childNodes": [],
+                  "attributes": [
+                    {
+                      "name": "view",
+                      "value": "default"
+                    },
+                    {
+                      "name": "clientSideOnly",
+                      "value": "true"
+                    },
+                    {
+                      "name": "enableAddCar",
+                      "value": "false"
+                    },
+                    {
+                      "name": "showHotelsPWPToggle",
+                      "value": "true"
+                    },
+                    {
+                      "name": "name",
+                      "value": "wizard-hotel-pwa-v2"
+                    },
+                    {
+                      "name": "fixedLobTitle",
+                      "value": "true"
+                    },
+                    {
+                      "name": "hideLobTitle",
+                      "value": "false"
+                    },
+                    {
+                      "name": "enableMultiplePlaces",
+                      "value": "false"
+                    },
+                    {
+                      "name": "enableAddFlight",
+                      "value": "false"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.ModuleNode",
+                  "id": 0
+                },
+                {
+                  "type": "MODULE",
+                  "childNodes": [],
+                  "attributes": [
+                    {
+                      "name": "lobSubtitleBreakPoint",
+                      "value": "on"
+                    },
+                    {
+                      "name": "hideLobTitle",
+                      "value": "false"
+                    },
+                    {
+                      "name": "view",
+                      "value": "default"
+                    },
+                    {
+                      "name": "useLastSearchForSingleLOB",
+                      "value": "true"
+                    },
+                    {
+                      "name": "clientSideOnly",
+                      "value": "true"
+                    },
+                    {
+                      "name": "fixedLobTitle",
+                      "value": "true"
+                    },
+                    {
+                      "name": "name",
+                      "value": "wizard-package-pwa"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.ModuleNode",
+                  "id": 0
+                },
+                {
+                  "type": "MODULE",
+                  "childNodes": [],
+                  "attributes": [
+                    {
+                      "name": "hideLobTitle",
+                      "value": "false"
+                    },
+                    {
+                      "name": "name",
+                      "value": "wizard-lx-pwa"
+                    },
+                    {
+                      "name": "fixedLobTitle",
+                      "value": "true"
+                    },
+                    {
+                      "name": "clientSideOnly",
+                      "value": "true"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.ModuleNode",
+                  "id": 0
+                }
+              ],
+              "attributes": [
+                {
+                  "name": "view",
+                  "value": "storefront-wizard-bex"
+                },
+                {
+                  "name": "width",
+                  "value": "100"
+                },
+                {
+                  "name": "id",
+                  "value": "region"
+                },
+                {
+                  "name": "brandModulePadding",
+                  "value": "bex_padding"
+                },
+                {
+                  "name": "name",
+                  "value": "Search Wizards"
+                }
+              ],
+              "errors": {
+                "errors": []
+              },
+              "class": "flex.manager.template.node.RegionNode",
+              "id": 0
+            },
+            {
+              "type": "REGION",
+              "childNodes": [
+                {
+                  "type": "MODULE",
+                  "childNodes": [],
+                  "attributes": [
+                    {
+                      "name": "verticalCenter",
+                      "value": "true"
+                    },
+                    {
+                      "name": "contentPurpose",
+                      "value": "WizardFooter"
+                    },
+                    {
+                      "name": "hasBorder",
+                      "value": "true"
+                    },
+                    {
+                      "name": "name",
+                      "value": "editorial"
+                    },
+                    {
+                      "name": "boxType",
+                      "value": "blossom-white"
+                    },
+                    {
+                      "name": "view",
+                      "value": "single-column"
+                    },
+                    {
+                      "name": "count",
+                      "value": "1"
+                    },
+                    {
+                      "name": "defaultContent",
+                      "value": "true"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.ModuleNode",
+                  "id": 0
+                }
+              ],
+              "attributes": [
+                {
+                  "name": "hasBorder",
+                  "value": "true"
+                },
+                {
+                  "name": "authLevel",
+                  "value": "AUTHENTICATED"
+                },
+                {
+                  "name": "width",
+                  "value": "100"
+                },
+                {
+                  "name": "id",
+                  "value": "region"
+                },
+                {
+                  "name": "brandModulePadding",
+                  "value": "bex_padding"
+                },
+                {
+                  "name": "name",
+                  "value": "WIZARD Footer - Slim"
+                }
+              ],
+              "errors": {
+                "errors": []
+              },
+              "class": "flex.manager.template.node.RegionNode",
+              "id": 0
+            }
+          ],
+          "attributes": [
+            {
+              "name": "view",
+              "value": "spacing-container"
+            },
+            {
+              "name": "backgroundColor",
+              "value": "white"
+            },
+            {
+              "name": "width",
+              "value": "100"
+            },
+            {
+              "name": "spacingContainer",
+              "value": "unset"
+            },
+            {
+              "name": "id",
+              "value": "region"
+            },
+            {
+              "name": "brandModulePadding",
+              "value": "bex_padding"
+            },
+            {
+              "name": "hasNoInlineSpacing",
+              "value": "true"
+            },
+            {
+              "name": "name",
+              "value": "Main Wizard"
+            },
+            {
+              "name": "fullWidth",
+              "value": "true"
+            }
+          ],
+          "errors": {
+            "errors": []
+          },
+          "class": "flex.manager.template.node.RegionNode",
+          "id": 0
+        },
+        {
+          "type": "REGION",
+          "childNodes": [
+            {
+              "type": "MODULE",
+              "childNodes": [],
+              "attributes": [
+                {
+                  "name": "contentId",
+                  "value": ""
+                },
+                {
+                  "name": "contentPurpose",
+                  "value": "Editorial"
+                },
+                {
+                  "name": "excludeRfrr",
+                  "value": "true"
+                },
+                {
+                  "name": "name",
+                  "value": "editorial"
+                },
+                {
+                  "name": "displayImages",
+                  "value": "true"
+                },
+                {
+                  "name": "boxType",
+                  "value": "blossom-plain"
+                },
+                {
+                  "name": "view",
+                  "value": "banner-v2"
+                }
+              ],
+              "errors": {
+                "errors": []
+              },
+              "class": "flex.manager.template.node.ModuleNode",
+              "id": 0
+            }
+          ],
+          "attributes": [
+            {
+              "name": "padding",
+              "value": "none"
+            },
+            {
+              "name": "width",
+              "value": "100"
+            },
+            {
+              "name": "backgroundImage",
+              "value": "https://forever.travel-assets.com/flex/flexmanager/images/2023/03/08/TPL_2.jpeg"
+            },
+            {
+              "name": "id",
+              "value": "region"
+            },
+            {
+              "name": "brandModulePadding",
+              "value": "bex_padding"
+            },
+            {
+              "name": "mobileWidth",
+              "value": "100"
+            },
+            {
+              "name": "name",
+              "value": "Hero Full Bleed Banner"
+            }
+          ],
+          "errors": {
+            "errors": []
+          },
+          "class": "flex.manager.template.node.RegionNode",
+          "id": 0
+        },
+        {
+          "type": "REGION",
+          "childNodes": [
+            {
+              "type": "REGION",
+              "childNodes": [
+                {
+                  "type": "MODULE",
+                  "childNodes": [],
+                  "attributes": [
+                    {
+                      "name": "contentId",
+                      "value": ""
+                    },
+                    {
+                      "name": "contentPurpose",
+                      "value": "FreeText"
+                    },
+                    {
+                      "name": "name",
+                      "value": "editorial"
+                    },
+                    {
+                      "name": "view",
+                      "value": "single-column"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.ModuleNode",
+                  "id": 0
+                }
+              ],
+              "attributes": [
+                {
+                  "name": "hasBorder",
+                  "value": "false"
+                },
+                {
+                  "name": "width",
+                  "value": "33"
+                },
+                {
+                  "name": "id",
+                  "value": "region"
+                },
+                {
+                  "name": "name",
+                  "value": "RTB 1"
+                }
+              ],
+              "errors": {
+                "errors": []
+              },
+              "class": "flex.manager.template.node.RegionNode",
+              "id": 0
+            },
+            {
+              "type": "REGION",
+              "childNodes": [
+                {
+                  "type": "MODULE",
+                  "childNodes": [],
+                  "attributes": [
+                    {
+                      "name": "contentId",
+                      "value": ""
+                    },
+                    {
+                      "name": "contentPurpose",
+                      "value": "FreeText"
+                    },
+                    {
+                      "name": "name",
+                      "value": "editorial"
+                    },
+                    {
+                      "name": "view",
+                      "value": "single-column"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.ModuleNode",
+                  "id": 0
+                }
+              ],
+              "attributes": [
+                {
+                  "name": "hasBorder",
+                  "value": "false"
+                },
+                {
+                  "name": "width",
+                  "value": "33"
+                },
+                {
+                  "name": "id",
+                  "value": "region"
+                },
+                {
+                  "name": "name",
+                  "value": "RTB 2"
+                }
+              ],
+              "errors": {
+                "errors": []
+              },
+              "class": "flex.manager.template.node.RegionNode",
+              "id": 0
+            },
+            {
+              "type": "REGION",
+              "childNodes": [
+                {
+                  "type": "MODULE",
+                  "childNodes": [],
+                  "attributes": [
+                    {
+                      "name": "cardLinkUrl",
+                      "value": ""
+                    },
+                    {
+                      "name": "contentId",
+                      "value": ""
+                    },
+                    {
+                      "name": "contentPurpose",
+                      "value": "FreeText"
+                    },
+                    {
+                      "name": "name",
+                      "value": "editorial"
+                    },
+                    {
+                      "name": "view",
+                      "value": "single-column"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.ModuleNode",
+                  "id": 0
+                }
+              ],
+              "attributes": [
+                {
+                  "name": "hasBorder",
+                  "value": "false"
+                },
+                {
+                  "name": "width",
+                  "value": "33"
+                },
+                {
+                  "name": "id",
+                  "value": "region"
+                },
+                {
+                  "name": "name",
+                  "value": "RTB 3"
+                }
+              ],
+              "errors": {
+                "errors": []
+              },
+              "class": "flex.manager.template.node.RegionNode",
+              "id": 0
+            }
+          ],
+          "attributes": [
+            {
+              "name": "width",
+              "value": "100"
+            },
+            {
+              "name": "id",
+              "value": "region"
+            },
+            {
+              "name": "hasNoInlineSpacing",
+              "value": "false"
+            },
+            {
+              "name": "name",
+              "value": "Reasons To Believe"
+            }
+          ],
+          "errors": {
+            "errors": []
+          },
+          "class": "flex.manager.template.node.RegionNode",
+          "id": 0
+        },
+        {
+          "type": "REGION",
+          "childNodes": [
+            {
+              "type": "REGION",
+              "childNodes": [
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "imageAspectRatio",
+                          "value": "16-9"
+                        },
+                        {
+                          "name": "contentId",
+                          "value": ""
+                        },
+                        {
+                          "name": "contentPurpose",
+                          "value": "Cards"
+                        },
+                        {
+                          "name": "floatImage",
+                          "value": "small"
+                        },
+                        {
+                          "name": "hasBorder",
+                          "value": "false"
+                        },
+                        {
+                          "name": "name",
+                          "value": "editorial"
+                        },
+                        {
+                          "name": "displayImages",
+                          "value": "true"
+                        },
+                        {
+                          "name": "boxType",
+                          "value": "no-border"
+                        },
+                        {
+                          "name": "view",
+                          "value": "on-canvas-banner"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 0
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "view",
+                      "value": "with-white-background"
+                    },
+                    {
+                      "name": "hasBorder",
+                      "value": "true"
+                    },
+                    {
+                      "name": "width",
+                      "value": "50"
+                    },
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "tabletWidth",
+                      "value": "50"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Tile 1"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 0
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "imageAspectRatio",
+                          "value": "16-9"
+                        },
+                        {
+                          "name": "contentId",
+                          "value": ""
+                        },
+                        {
+                          "name": "contentPurpose",
+                          "value": "Cards"
+                        },
+                        {
+                          "name": "floatImage",
+                          "value": "small"
+                        },
+                        {
+                          "name": "hasBorder",
+                          "value": "false"
+                        },
+                        {
+                          "name": "name",
+                          "value": "editorial"
+                        },
+                        {
+                          "name": "displayImages",
+                          "value": "true"
+                        },
+                        {
+                          "name": "boxType",
+                          "value": "no-border"
+                        },
+                        {
+                          "name": "view",
+                          "value": "on-canvas-banner"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 0
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "view",
+                      "value": "with-white-background"
+                    },
+                    {
+                      "name": "hasBorder",
+                      "value": "true"
+                    },
+                    {
+                      "name": "width",
+                      "value": "50"
+                    },
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "tabletWidth",
+                      "value": "50"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Tile 2"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 0
+                }
+              ],
+              "attributes": [
+                {
+                  "name": "width",
+                  "value": "100"
+                },
+                {
+                  "name": "id",
+                  "value": "region"
+                },
+                {
+                  "name": "brandModulePadding",
+                  "value": "bex_padding"
+                },
+                {
+                  "name": "name",
+                  "value": "Editorial On Canvas Group"
+                }
+              ],
+              "errors": {
+                "errors": []
+              },
+              "class": "flex.manager.template.node.RegionNode",
+              "id": 0
+            }
+          ],
+          "attributes": [
+            {
+              "name": "view",
+              "value": "spacing-container"
+            },
+            {
+              "name": "width",
+              "value": "100"
+            },
+            {
+              "name": "id",
+              "value": "region"
+            },
+            {
+              "name": "hasNoInlineSpacing",
+              "value": "true"
+            },
+            {
+              "name": "name",
+              "value": "Editorial on Canvas Banner"
+            }
+          ],
+          "errors": {
+            "errors": []
+          },
+          "class": "flex.manager.template.node.RegionNode",
+          "id": 0
+        },
+        {
+          "type": "REGION",
+          "childNodes": [],
+          "attributes": [
+            {
+              "name": "width",
+              "value": "100"
+            },
+            {
+              "name": "id",
+              "value": "region"
+            },
+            {
+              "name": "name",
+              "value": "Recent Searches"
+            }
+          ],
+          "errors": {
+            "errors": []
+          },
+          "class": "flex.manager.template.node.RegionNode",
+          "id": 0
+        },
+        {
+          "type": "REGION",
+          "childNodes": [
+            {
+              "type": "MODULE",
+              "childNodes": [],
+              "attributes": [
+                {
+                  "name": "name",
+                  "value": "footer"
+                },
+                {
+                  "name": "clientSideOnly",
+                  "value": "true"
+                }
+              ],
+              "errors": {
+                "errors": []
+              },
+              "class": "flex.manager.template.node.ModuleNode",
+              "id": 0
+            }
+          ],
+          "attributes": [
+            {
+              "name": "desktopWidth",
+              "value": "50"
+            },
+            {
+              "name": "width",
+              "value": "100"
+            },
+            {
+              "name": "id",
+              "value": "region"
+            },
+            {
+              "name": "name",
+              "value": "Footer"
+            }
+          ],
+          "errors": {
+            "errors": []
+          },
+          "class": "flex.manager.template.node.RegionNode",
+          "id": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "value": "flow"
+        }
+      ],
+      "errors": {
+        "errors": []
+      },
+      "class": "flex.manager.template.node.LayoutNode",
+      "id": 0
+    },
+    "softLockedBy": null,
+    "softLockStart": null,
+    "softLockEnd": null,
+    "groups": [],
+    "contextExperiments": [
+      "VAC_PhaseThree_EGTnL"
+    ],
+    "warningMsg": []
+  }
+]
