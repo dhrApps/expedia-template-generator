@@ -6,7 +6,7 @@
     "name": "TEMPLATE_NAME_PLACEHOLDER",
     "title": "TEMPLATE_PAGE_TITLE_PLACEHOLDER",
     "header": "TEMPLATE_HEADER_PLACEHOLDER",
-    "subHeadline": null,
+    "subHeadline": None,
     "metaDescription": null,
     "metaKeywords": null,
     "metaRobots": null,
