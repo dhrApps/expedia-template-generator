@@ -1,43 +1,40 @@
 import streamlit as st
 import json
+import copy
 
-# Load the corrected base JSON template
+# App title
+st.title("WLT Landing Page Template Generator")
+
+# User Inputs
+template_name = st.text_input("Template Name")
+page_title = st.text_input("Page Title")
+header_text = st.text_input("Header Text")
+brand = st.text_input("Brand", "GPS")
+pos = st.text_input("POS", "PHILIPPINEAIRLINES_PH")
+locale = st.text_input("Locale", "EN_PH")
+
+st.markdown("---")
+st.subheader("Content IDs")
+hero_banner = st.text_input("Hero Banner Content ID")
+rtb1 = st.text_input("Reason To Believe 1 (RTB 1) Content ID")
+rtb2 = st.text_input("Reason To Believe 2 (RTB 2) Content ID")
+rtb3 = st.text_input("Reason To Believe 3 (RTB 3) Content ID")
+tile1 = st.text_input("Canvas Group Tile 1 Content ID")
+tile2 = st.text_input("Canvas Group Tile 2 Content ID")
+
+# Load base template
+base_template = None
 try:
-    with open("fixed_base_template.json", "r") as f:
+    with open("fixed_base_template.json") as f:
         base_template = json.load(f)
-    st.success("✅ Base template loaded successfully.")
 except Exception as e:
-    st.error(f"⚠️ Error loading base template: {repr(e)}")
-    base_template = None
-
-# Title
-st.title("🌍 WLT Landing Page Template Generator")
-
-# Intro
-st.write("Create a fully structured landing page template with ease. Fill in the content IDs and download a ready-to-upload JSON.")
-
-# Input fields
-template_name = st.text_input("Template Name", help="Give your template a unique and descriptive name.")
-page_title = st.text_input("Page Title", help="This title appears on the browser tab and search engines.")
-header_text = st.text_input("Header", help="Main heading shown on the landing page.")
-brand = st.text_input("Brand", help="Brand code, e.g., GPS")
-pos = st.text_input("POS", help="Point of Sale, e.g., CATHAYPACIFIC_HK")
-locale = st.text_input("Locale", help="Locale code, e.g., EN_HK")
-
-# Component Content ID Inputs (with helper tooltips)
-st.subheader("📋 Component Content IDs (with helper tooltips)")
-hero_banner = st.text_input("Hero Banner Content ID", help="Big banner at top of the page with CTA")
-rtb1 = st.text_input("Reason To Believe 1 (RTB 1) Content ID", help="First text block under banner (e.g., trust message)")
-rtb2 = st.text_input("Reason To Believe 2 (RTB 2) Content ID", help="Second text block (optional)")
-rtb3 = st.text_input("Reason To Believe 3 (RTB 3) Content ID", help="Third text block (e.g., help center CTA)")
-tile1 = st.text_input("Canvas Group Tile 1 Content ID", help="Left-side card (e.g., featured destination)")
-tile2 = st.text_input("Canvas Group Tile 2 Content ID", help="Right-side card (e.g., flexible booking promo)")
+    st.error(f"Error loading base template: {e}")
 
 # Generate JSON
 if st.button("Generate Template JSON"):
     try:
         if base_template:
-            populated_template = base_template.copy()
+            populated_template = copy.deepcopy(base_template)
             populated_template[0]["name"] = template_name
             populated_template[0]["title"] = page_title
             populated_template[0]["header"] = header_text
@@ -45,22 +42,35 @@ if st.button("Generate Template JSON"):
             populated_template[0]["pos"] = pos
             populated_template[0]["locale"] = locale
 
-            # Assign content IDs to placeholders
-            populated_template[0]["heroBannerContentId"] = hero_banner
-            populated_template[0]["rtb1ContentId"] = rtb1
-            populated_template[0]["rtb2ContentId"] = rtb2
-            populated_template[0]["rtb3ContentId"] = rtb3
-            populated_template[0]["tile1ContentId"] = tile1
-            populated_template[0]["tile2ContentId"] = tile2
+            # Dynamically assign content IDs
+            def assign_content_id(node, label, content_id):
+                if isinstance(node, dict):
+                    for key, value in node.items():
+                        if key == "attributes" and isinstance(value, list):
+                            for attr in value:
+                                if attr.get("name") == "contentId":
+                                    # Match based on label in the UI
+                                    if label.lower() in node.get("attributes", [{}])[0].get("value", "").lower() or label.lower() in json.dumps(node).lower():
+                                        attr["value"] = content_id
+                        else:
+                            assign_content_id(value, label, content_id)
+                elif isinstance(node, list):
+                    for item in node:
+                        assign_content_id(item, label, content_id)
 
-            json_str = json.dumps(populated_template, indent=2)
+            assign_content_id(populated_template[0]["flexNode"], "hero", hero_banner)
+            assign_content_id(populated_template[0]["flexNode"], "rtb1", rtb1)
+            assign_content_id(populated_template[0]["flexNode"], "rtb2", rtb2)
+            assign_content_id(populated_template[0]["flexNode"], "rtb3", rtb3)
+            assign_content_id(populated_template[0]["flexNode"], "tile1", tile1)
+            assign_content_id(populated_template[0]["flexNode"], "tile2", tile2)
 
-            st.success("✅ Template generated successfully!")
-            st.download_button(
-                label="📥 Download JSON File",
-                data=json_str,
-                file_name="generated_template.json",
-                mime="application/json"
-            )
+            # Optional: display preview in UI
+            st.subheader("🔍 Preview of Generated JSON")
+            st.json(populated_template)
+
+            # Download button
+            json_str = json.dumps(populated_template, indent=4)
+            st.download_button("📥 Download JSON", data=json_str, file_name="generated_template.json", mime="application/json")
     except Exception as e:
-        st.error(f"⚠️ Error generating template: {repr(e)}")}")
+        st.error(f"⚠️ Error generating template: {repr(e)}")
