@@ -6,10 +6,10 @@
     "name": "TEMPLATE_NAME_PLACEHOLDER",
     "title": "TEMPLATE_PAGE_TITLE_PLACEHOLDER",
     "header": "TEMPLATE_HEADER_PLACEHOLDER",
-    "subHeadline": None,
-    "metaDescription": None,
-    "metaKeywords": None,
-    "metaRobots": None,
+    "subHeadline": "",
+    "metaDescription": "",
+    "metaKeywords": "",
+    "metaRobots": "",
     "flexNode": {
       "type": "LAYOUT",
       "childNodes": [
@@ -870,9 +870,9 @@
       "class": "flex.manager.template.node.LayoutNode",
       "id": 0
     },
-    "softLockedBy": None,
-    "softLockStart": None,
-    "softLockEnd": None,
+    "softLockedBy": "",
+    "softLockStart": "",
+    "softLockEnd": "",
     "groups": [],
     "contextExperiments": [
       "VAC_PhaseThree_EGTnL"
