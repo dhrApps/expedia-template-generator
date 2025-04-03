@@ -45,7 +45,7 @@ if st.button("Generate Template JSON"):
             populated_template[0]["pos"] = pos
             populated_template[0]["locale"] = locale
 
-            # Assign content IDs to placeholders (example placement)
+            # Assign content IDs to placeholders
             populated_template[0]["heroBannerContentId"] = hero_banner
             populated_template[0]["rtb1ContentId"] = rtb1
             populated_template[0]["rtb2ContentId"] = rtb2
@@ -53,7 +53,14 @@ if st.button("Generate Template JSON"):
             populated_template[0]["tile1ContentId"] = tile1
             populated_template[0]["tile2ContentId"] = tile2
 
-            json_str = json.dumps(populated_template, indent=4)
-            st.download_button("📥 Download JSON", data=json_str, file_name="generated_template.json", mime="application/json")
+            json_str = json.dumps(populated_template, indent=2)
+
+            st.success("✅ Template generated successfully!")
+            st.download_button(
+                label="📥 Download JSON File",
+                data=json_str,
+                file_name="generated_template.json",
+                mime="application/json"
+            )
     except Exception as e:
-        st.error(f"⚠️ Error generating template: {repr(e)}")
+        st.error(f"⚠️ Error generating template: {repr(e)}")}")
