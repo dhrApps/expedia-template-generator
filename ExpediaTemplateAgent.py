@@ -2,10 +2,10 @@
   {
     "brand": "GPS",
     "pos": "PHILIPPINEAIRLINES_PH",
-    "locale": "en_PH",
-    "name": "DSTest16_E4P-PHILIPPINEAIRLINES_PH-EN_PHBlossom-Homepage-IndexFollow",
-    "title": "Test Philippineairlines | Earn Miles on Your Next Hotel Stay or Vacation Package",
-    "header": "Earn 100 miles for every $1 spent",
+    "locale": "EN_PH",
+    "name": "TEMPLATE_NAME_PLACEHOLDER",
+    "title": "TEMPLATE_PAGE_TITLE_PLACEHOLDER",
+    "header": "TEMPLATE_HEADER_PLACEHOLDER",
     "subHeadline": null,
     "metaDescription": null,
     "metaKeywords": null,
@@ -877,6 +877,12 @@
     "contextExperiments": [
       "VAC_PhaseThree_EGTnL"
     ],
-    "warningMsg": []
+    "warningMsg": [],
+    "heroBannerContentId": "",
+    "rtb1ContentId": "",
+    "rtb2ContentId": "",
+    "rtb3ContentId": "",
+    "tile1ContentId": "",
+    "tile2ContentId": ""
   }
 ]
