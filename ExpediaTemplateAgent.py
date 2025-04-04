@@ -6,21 +6,21 @@ import copy
 st.title("WLT Landing Page Template Generator")
 
 # User Inputs
-template_name = st.text_input("Template Name")
-page_title = st.text_input("Page Title")
-header_text = st.text_input("Header Text")
-brand = st.text_input("Brand", "GPS")
-pos = st.text_input("POS", "PHILIPPINEAIRLINES_PH")
-locale = st.text_input("Locale", "EN_PH")
+template_name = st.text_input("Template Name", help="Enter the internal name of the template.")
+page_title = st.text_input("Page Title", help="This will be the SEO page title shown in search results.")
+header_text = st.text_input("Header Text", help="Main header that appears on top of the landing page.")
+brand = st.text_input("Brand", help="E.g., GPS, EG, WLT")
+pos = st.text_input("POS", help="E.g., CATHAYPACIFIC_HK, PHILIPPINEAIRLINES_PH")
+locale = st.text_input("Locale", help="E.g., EN_HK, EN_PH")
 
 st.markdown("---")
 st.subheader("Content IDs")
-hero_banner = st.text_input("Hero Banner Content ID")
-rtb1 = st.text_input("Reason To Believe 1 (RTB 1) Content ID")
-rtb2 = st.text_input("Reason To Believe 2 (RTB 2) Content ID")
-rtb3 = st.text_input("Reason To Believe 3 (RTB 3) Content ID")
-tile1 = st.text_input("Canvas Group Tile 1 Content ID")
-tile2 = st.text_input("Canvas Group Tile 2 Content ID")
+hero_banner = st.text_input("Hero Banner Content ID", help="Content ID for the main hero image/banner.")
+rtb1 = st.text_input("Reason To Believe 1 (RTB 1) Content ID", help="Content ID for the first RTB module.")
+rtb2 = st.text_input("Reason To Believe 2 (RTB 2) Content ID", help="Content ID for the second RTB module.")
+rtb3 = st.text_input("Reason To Believe 3 (RTB 3) Content ID", help="Content ID for the third RTB module.")
+tile1 = st.text_input("Canvas Group Tile 1 Content ID", help="Content ID for the first canvas group tile.")
+tile2 = st.text_input("Canvas Group Tile 2 Content ID", help="Content ID for the second canvas group tile.")
 
 # Load base template
 base_template = None
