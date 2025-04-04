@@ -3,7 +3,17 @@ import streamlit as st
 import json
 
 # App title
-st.title("WLT Landing Page Template Generator")
+
+st.markdown(
+    """
+    <div style='display: flex; align-items: center; gap: 10px;'>
+        <img src='https://upload.wikimedia.org/wikipedia/commons/5/5e/Expedia_Group_logo_2021.svg' width='40'/>
+        <h1 style='color:#0073e6;font-size:28px;'>✈️ WLT Template Generator</h1>
+    </div>
+    """, 
+    unsafe_allow_html=True
+)
+
 
 # User Inputs with help text and NO default values
 template_name = st.text_input("Template Name", help="Enter a unique name for this template.")
