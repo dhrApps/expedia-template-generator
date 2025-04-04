@@ -1,16 +1,9 @@
 
-<style>
-body {
-    background-color: #f0f8ff;
-}
-</style>
-
-
 import streamlit as st
 import json
 
 # App title
-st.title("WLT Template Generator")
+st.title("WLT Landing Page Template Generator")
 
 # User Inputs with help text and NO default values
 template_name = st.text_input("Template Name", help="Enter a unique name for this template.")
