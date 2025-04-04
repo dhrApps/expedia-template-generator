@@ -2,48 +2,48 @@
 import streamlit as st
 import json
 
-# App title
-st.title("WLT Landing Page Template Generator")
+# Travel-themed background and header styling
+st.markdown(
+    """
+    <style>
+        .stApp {
+            background-image: url("https://images.unsplash.com/photo-1502920917128-1aa500764b79");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        h1 {
+            color: #002244;
+            font-family: 'Trebuchet MS', sans-serif;
+            text-shadow: 1px 1px 2px #ccc;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-# User Inputs with help text and NO default values
-template_name = st.text_input("Template Name", help="Enter a unique name for this template.")
-page_title = st.text_input("Page Title", help="Displayed as the main title on the landing page.")
-header_text = st.text_input("Header Text", help="Header displayed at the top of the landing page.")
+st.title("WLT Template Generator")
 
-brand = st.text_input("Brand", help="Brand identifier, e.g., GPS or WLT.")
-pos = st.text_input("POS", help="Point of Sale identifier, e.g., CATHAYPACIFIC_HK.")
-locale = st.text_input("Locale", help="Locale code, e.g., en_HK.")
+# Load base JSON template
+with open("fixed_base_template.json", "r") as f:
+    base_template = json.load(f)
 
+# User inputs
+template_name = st.text_input("Template Name", help="This is the name used internally to identify your template.")
+page_title = st.text_input("Page Title", help="This is what users see on the landing page tab.")
+header_text = st.text_input("Header", help="Main heading text on the landing page.")
+
+# Separator before content fields
 st.markdown("---")
-st.subheader("Content IDs")
+st.markdown("### Content IDs")
 
-hero_banner = st.text_input("Hero Banner Content ID", help="Content ID for the hero banner at the top of the page.")
-rtb1 = st.text_input("Reason To Believe 1 (RTB 1) Content ID", help="Content ID for the first RTB section.")
-rtb2 = st.text_input("Reason To Believe 2 (RTB 2) Content ID", help="Content ID for the second RTB section.")
-rtb3 = st.text_input("Reason To Believe 3 (RTB 3) Content ID", help="Content ID for the third RTB section.")
-tile1 = st.text_input("Canvas Group Tile 1 Content ID", help="Content ID for the first tile in the canvas group.")
-tile2 = st.text_input("Canvas Group Tile 2 Content ID", help="Content ID for the second tile in the canvas group.")
-
-# Load base template
-base_template = None
-try:
-    with open("fixed_base_template.json") as f:
-        base_template = json.load(f)
-except Exception as e:
-    st.error(f"⚠️ Error loading base template: {repr(e)}")
-
-# Content ID Mapping Function
-def assign_content_ids(flex_node, region_map):
-    if flex_node.get("type") == "REGION":
-        region_name = next((a["value"] for a in flex_node.get("attributes", []) if a["name"] == "name"), "")
-        if region_name in region_map:
-            for module in flex_node.get("childNodes", []):
-                if module.get("type") == "MODULE":
-                    for attr in module.get("attributes", []):
-                        if attr["name"] == "contentId":
-                            attr["value"] = region_map[region_name]
-    for child in flex_node.get("childNodes", []):
-        assign_content_ids(child, region_map)
+# Content ID inputs
+hero_banner = st.text_input("Hero Banner Content ID", help="Content ID for the top banner image.")
+rtb1 = st.text_input("RTB 1 Content ID", help="Reason to believe section 1 content ID.")
+rtb2 = st.text_input("RTB 2 Content ID", help="Reason to believe section 2 content ID.")
+rtb3 = st.text_input("RTB 3 Content ID", help="Reason to believe section 3 content ID.")
+tile1 = st.text_input("Tile 1 Content ID", help="First promotional tile content ID.")
+tile2 = st.text_input("Tile 2 Content ID", help="Second promotional tile content ID.")
 
 # Generate JSON
 if st.button("Generate Template JSON"):
@@ -53,21 +53,37 @@ if st.button("Generate Template JSON"):
             populated_template[0]["name"] = template_name
             populated_template[0]["title"] = page_title
             populated_template[0]["header"] = header_text
-            populated_template[0]["brand"] = brand
-            populated_template[0]["pos"] = pos
-            populated_template[0]["locale"] = locale
 
-            region_content_map = {
-                "Hero Full Bleed Banner": hero_banner,
-                "RTB 1": rtb1,
-                "RTB 2": rtb2,
-                "RTB 3": rtb3,
-                "Tile 1": tile1,
-                "Tile 2": tile2
-            }
+            # Insert content IDs into their appropriate regions
+            def insert_content_id(region_name, content_id):
+                def recurse(node):
+                    if isinstance(node, dict):
+                        if node.get("type") == "REGION":
+                            attributes = node.get("attributes", [])
+                            for attr in attributes:
+                                if attr.get("name") == "name" and attr.get("value") == region_name:
+                                    for child in node.get("childNodes", []):
+                                        if child.get("type") == "MODULE":
+                                            for attr in child.get("attributes", []):
+                                                if attr.get("name") == "contentId":
+                                                    attr["value"] = content_id
+                        for key in node:
+                            recurse(node[key])
+                    elif isinstance(node, list):
+                        for item in node:
+                            recurse(item)
 
-            assign_content_ids(populated_template[0]["flexNode"], region_content_map)
+                recurse(populated_template[0]["flexNode"])
 
+            # Apply mappings
+            insert_content_id("Hero Full Bleed Banner", hero_banner)
+            insert_content_id("RTB 1", rtb1)
+            insert_content_id("RTB 2", rtb2)
+            insert_content_id("RTB 3", rtb3)
+            insert_content_id("Tile 1", tile1)
+            insert_content_id("Tile 2", tile2)
+
+            # Output JSON
             json_str = json.dumps(populated_template, indent=4)
             st.download_button("📥 Download JSON", data=json_str, file_name="generated_template.json", mime="application/json")
     except Exception as e:
