@@ -2,11 +2,11 @@
 import streamlit as st
 import json
 
-# App title
+# Custom-styled Title with Expedia Group theme
 st.markdown("""
-<div style="background-image: url('https://images.unsplash.com/photo-1502920917128-1aa500764b8a?auto=format&fit=crop&w=1350&q=80'); background-size: cover; padding: 40px 20px; border-radius: 10px;">
-<h1 style="color: white; text-align: center;">WLT Template Generator</h1>
-</div>
+<h1 style='color: #00355F; text-align: center; font-size: 2.5em; font-weight: bold;'>
+✈️ WLT Template Generator
+</h1>
 """, unsafe_allow_html=True)
 
 # User Inputs with help text and NO default values
@@ -72,6 +72,11 @@ if st.button("Generate Template JSON"):
 
             assign_content_ids(populated_template[0]["flexNode"], region_content_map)
 
+            # Show preview
+            st.subheader("🔍 Preview of Generated JSON")
+            st.json(populated_template)
+
+            # Allow download
             json_str = json.dumps(populated_template, indent=4)
             st.download_button("📥 Download JSON", data=json_str, file_name="generated_template.json", mime="application/json")
     except Exception as e:
