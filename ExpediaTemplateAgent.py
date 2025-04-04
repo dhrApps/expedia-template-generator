@@ -13,7 +13,7 @@ header_text = st.text_input("Header Text", help="Header displayed at the top of 
 
 brand = st.text_input("Brand", help="Brand identifier, e.g., GPS or WLT.")
 pos = st.text_input("POS", help="Point of Sale identifier, e.g., CATHAYPACIFIC_HK.")
-locale = st.text_input("Locale", help="Locale code, e.g., EN_HK.")
+locale = st.text_input("Locale", help="Locale code, e.g., en_HK.")
 
 st.markdown("---")
 st.subheader("Content IDs")
