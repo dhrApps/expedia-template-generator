@@ -1,9 +1,13 @@
 
 import streamlit as st
 import json
+import copy
 
-# App title
+# Load base template
+with open("fixed_base_template.json", "r") as f:
+    base_template = json.load(f)
 
+# Header with logo and styled title
 st.markdown(
     """
     <div style='display: flex; align-items: center; gap: 10px;'>
@@ -14,52 +18,42 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Input fields
+template_name = st.text_input("Template Name")
+page_title = st.text_input("Page Title")
+header_text = st.text_input("Header")
+brand = st.text_input("Brand")
+pos = st.text_input("POS")
+locale = st.text_input("Locale")
 
-# User Inputs with help text and NO default values
-template_name = st.text_input("Template Name", help="Enter a unique name for this template.")
-page_title = st.text_input("Page Title", help="Displayed as the main title on the landing page.")
-header_text = st.text_input("Header Text", help="Header displayed at the top of the landing page.")
+hero_banner = st.text_input("Hero Banner Content ID", help="Content ID for Hero Full Bleed Banner")
+rtb1 = st.text_input("Reason To Believe 1 (RTB 1) Content ID", help="Content ID for RTB 1 section")
+rtb2 = st.text_input("Reason To Believe 2 (RTB 2) Content ID", help="Content ID for RTB 2 section")
+rtb3 = st.text_input("Reason To Believe 3 (RTB 3) Content ID", help="Content ID for RTB 3 section")
+tile1 = st.text_input("Canvas Group Tile 1 Content ID", help="Content ID for Tile 1 in Canvas Group")
+tile2 = st.text_input("Canvas Group Tile 2 Content ID", help="Content ID for Tile 2 in Canvas Group")
 
-brand = st.text_input("Brand", help="Brand identifier, e.g., GPS or WLT.")
-pos = st.text_input("POS", help="Point of Sale identifier, e.g., CATHAYPACIFIC_HK.")
-locale = st.text_input("Locale", help="Locale code, e.g., en_HK.")
-
-st.markdown("---")
-st.subheader("Content IDs")
-
-hero_banner = st.text_input("Hero Banner Content ID", help="Content ID for the hero banner at the top of the page.")
-rtb1 = st.text_input("Reason To Believe 1 (RTB 1) Content ID", help="Content ID for the first RTB section.")
-rtb2 = st.text_input("Reason To Believe 2 (RTB 2) Content ID", help="Content ID for the second RTB section.")
-rtb3 = st.text_input("Reason To Believe 3 (RTB 3) Content ID", help="Content ID for the third RTB section.")
-tile1 = st.text_input("Canvas Group Tile 1 Content ID", help="Content ID for the first tile in the canvas group.")
-tile2 = st.text_input("Canvas Group Tile 2 Content ID", help="Content ID for the second tile in the canvas group.")
-
-# Load base template
-base_template = None
-try:
-    with open("fixed_base_template.json") as f:
-        base_template = json.load(f)
-except Exception as e:
-    st.error(f"⚠️ Error loading base template: {repr(e)}")
-
-# Content ID Mapping Function
-def assign_content_ids(flex_node, region_map):
-    if flex_node.get("type") == "REGION":
-        region_name = next((a["value"] for a in flex_node.get("attributes", []) if a["name"] == "name"), "")
-        if region_name in region_map:
-            for module in flex_node.get("childNodes", []):
-                if module.get("type") == "MODULE":
-                    for attr in module.get("attributes", []):
-                        if attr["name"] == "contentId":
-                            attr["value"] = region_map[region_name]
-    for child in flex_node.get("childNodes", []):
-        assign_content_ids(child, region_map)
+# Helper to assign contentId into the correct region
+def assign_content_id(template, region_name, content_id_value):
+    def recursive_assign(node):
+        if node.get("type") == "REGION":
+            attributes = node.get("attributes", [])
+            for attr in attributes:
+                if attr.get("name") == "name" and attr.get("value") == region_name:
+                    for module in node.get("childNodes", []):
+                        if module.get("type") == "MODULE":
+                            for attr in module.get("attributes", []):
+                                if attr.get("name") == "contentId":
+                                    attr["value"] = content_id_value
+        for child in node.get("childNodes", []):
+            recursive_assign(child)
+    recursive_assign(template["flexNode"])
 
 # Generate JSON
 if st.button("Generate Template JSON"):
     try:
         if base_template:
-            populated_template = base_template.copy()
+            populated_template = copy.deepcopy(base_template)
             populated_template[0]["name"] = template_name
             populated_template[0]["title"] = page_title
             populated_template[0]["header"] = header_text
@@ -67,16 +61,13 @@ if st.button("Generate Template JSON"):
             populated_template[0]["pos"] = pos
             populated_template[0]["locale"] = locale
 
-            region_content_map = {
-                "Hero Full Bleed Banner": hero_banner,
-                "RTB 1": rtb1,
-                "RTB 2": rtb2,
-                "RTB 3": rtb3,
-                "Tile 1": tile1,
-                "Tile 2": tile2
-            }
-
-            assign_content_ids(populated_template[0]["flexNode"], region_content_map)
+            # Assign content IDs to corresponding regions
+            assign_content_id(populated_template[0], "Hero Full Bleed Banner", hero_banner)
+            assign_content_id(populated_template[0], "RTB 1", rtb1)
+            assign_content_id(populated_template[0], "RTB 2", rtb2)
+            assign_content_id(populated_template[0], "RTB 3", rtb3)
+            assign_content_id(populated_template[0], "Tile 1", tile1)
+            assign_content_id(populated_template[0], "Tile 2", tile2)
 
             json_str = json.dumps(populated_template, indent=4)
             st.download_button("📥 Download JSON", data=json_str, file_name="generated_template.json", mime="application/json")
