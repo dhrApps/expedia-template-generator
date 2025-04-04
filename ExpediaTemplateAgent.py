@@ -1,7 +1,6 @@
 
 import streamlit as st
 import json
-import copy
 
 # App title
 st.title("WLT Landing Page Template Generator")
@@ -31,13 +30,26 @@ try:
     with open("fixed_base_template.json") as f:
         base_template = json.load(f)
 except Exception as e:
-    st.error(f"Error loading base template: {e}")
+    st.error(f"⚠️ Error loading base template: {repr(e)}")
+
+# Content ID Mapping Function
+def assign_content_ids(flex_node, region_map):
+    if flex_node.get("type") == "REGION":
+        region_name = next((a["value"] for a in flex_node.get("attributes", []) if a["name"] == "name"), "")
+        if region_name in region_map:
+            for module in flex_node.get("childNodes", []):
+                if module.get("type") == "MODULE":
+                    for attr in module.get("attributes", []):
+                        if attr["name"] == "contentId":
+                            attr["value"] = region_map[region_name]
+    for child in flex_node.get("childNodes", []):
+        assign_content_ids(child, region_map)
 
 # Generate JSON
 if st.button("Generate Template JSON"):
     try:
         if base_template:
-            populated_template = copy.deepcopy(base_template)
+            populated_template = base_template.copy()
             populated_template[0]["name"] = template_name
             populated_template[0]["title"] = page_title
             populated_template[0]["header"] = header_text
@@ -45,33 +57,16 @@ if st.button("Generate Template JSON"):
             populated_template[0]["pos"] = pos
             populated_template[0]["locale"] = locale
 
-            # Assign content IDs dynamically into the relevant sections
-            def assign_content_ids(node, content_id_map):
-                if isinstance(node, dict):
-                    for key, value in node.items():
-                        if key == "attributes" and isinstance(value, list):
-                            for attr in value:
-                                if attr.get("name") == "contentId":
-                                    parent_name = next((a.get("value", "").lower() for a in value if a.get("name") == "name"), "")
-                                    for label, cid in content_id_map.items():
-                                        if label in parent_name:
-                                            attr["value"] = cid
-                        else:
-                            assign_content_ids(value, content_id_map)
-                elif isinstance(node, list):
-                    for item in node:
-                        assign_content_ids(item, content_id_map)
-
-            content_id_map = {
-                "hero": hero_banner,
-                "rtb 1": rtb1,
-                "rtb 2": rtb2,
-                "rtb 3": rtb3,
-                "tile 1": tile1,
-                "tile 2": tile2
+            region_content_map = {
+                "Hero Full Bleed Banner": hero_banner,
+                "RTB 1": rtb1,
+                "RTB 2": rtb2,
+                "RTB 3": rtb3,
+                "Tile 1": tile1,
+                "Tile 2": tile2
             }
 
-            assign_content_ids(populated_template[0]["flexNode"], content_id_map)
+            assign_content_ids(populated_template[0]["flexNode"], region_content_map)
 
             json_str = json.dumps(populated_template, indent=4)
             st.download_button("📥 Download JSON", data=json_str, file_name="generated_template.json", mime="application/json")
