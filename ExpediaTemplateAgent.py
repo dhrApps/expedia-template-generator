@@ -1,6 +1,27 @@
 
 import streamlit as st
 import json
+
+# Helper to assign contentId to module by region name
+def assign_content_id_by_region_name(json_data, region_name, content_id_value):
+    def recursive_assign(node):
+        if isinstance(node, dict):
+            if node.get("type") == "REGION":
+                for attr in node.get("attributes", []):
+                    if attr.get("name") == "name" and attr.get("value") == region_name:
+                        # Look for the module within this region and assign the contentId
+                        for child in node.get("childNodes", []):
+                            if child.get("type") == "MODULE":
+                                for mod_attr in child.get("attributes", []):
+                                    if mod_attr.get("name") == "contentId":
+                                        mod_attr["value"] = content_id_value
+            for v in node.values():
+                recursive_assign(v)
+        elif isinstance(node, list):
+            for item in node:
+                recursive_assign(item)
+
+    recursive_assign(json_data)
 import copy
 
 # Set page config
@@ -39,6 +60,13 @@ st.markdown("---")
 st.subheader("Content IDs")
 
 if template_type == "WLT Landing Page Template":
+            # Inject content IDs into correct module regions
+            assign_content_id_by_region_name(populated_template[0]["flexNode"], "Hero Full Bleed Banner", hero_banner)
+            assign_content_id_by_region_name(populated_template[0]["flexNode"], "RTB 1", rtb1)
+            assign_content_id_by_region_name(populated_template[0]["flexNode"], "RTB 2", rtb2)
+            assign_content_id_by_region_name(populated_template[0]["flexNode"], "RTB 3", rtb3)
+            assign_content_id_by_region_name(populated_template[0]["flexNode"], "Tile 1", tile1)
+            assign_content_id_by_region_name(populated_template[0]["flexNode"], "Tile 2", tile2)
     hero_banner = st.text_input("Hero Banner Content ID", help="Used for the main hero image/banner shown at the top of the landing page, typically on desktop devices.")
     rtb1 = st.text_input("RTB 1 Content ID", help="Content ID for the first 'Reason To Believe' section.")
     rtb2 = st.text_input("RTB 2 Content ID", help="Content ID for the second 'Reason To Believe' section.")
@@ -71,6 +99,13 @@ if st.button("Generate Template JSON"):
             data[0]["locale"] = locale
 
             if template_type == "WLT Landing Page Template":
+            # Inject content IDs into correct module regions
+            assign_content_id_by_region_name(populated_template[0]["flexNode"], "Hero Full Bleed Banner", hero_banner)
+            assign_content_id_by_region_name(populated_template[0]["flexNode"], "RTB 1", rtb1)
+            assign_content_id_by_region_name(populated_template[0]["flexNode"], "RTB 2", rtb2)
+            assign_content_id_by_region_name(populated_template[0]["flexNode"], "RTB 3", rtb3)
+            assign_content_id_by_region_name(populated_template[0]["flexNode"], "Tile 1", tile1)
+            assign_content_id_by_region_name(populated_template[0]["flexNode"], "Tile 2", tile2)
                 data[0]["heroBannerContentId"] = hero_banner
                 data[0]["rtb1ContentId"] = rtb1
                 data[0]["rtb2ContentId"] = rtb2
