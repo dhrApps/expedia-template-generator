@@ -4,7 +4,7 @@ import json
 import base64
 
 # Set page config
-st.set_page_config(layout="wide")
+st.set_page_config(layout="centered")
 
 # Custom title bar with Expedia Group branding and travel theme
 st.markdown(
