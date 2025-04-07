@@ -3,102 +3,82 @@ import streamlit as st
 import json
 import copy
 
-st.set_page_config(layout="centered")
+# Set page config
+st.set_page_config(page_title="WLT Template Generator", layout="centered")
 
-# --- Styling ---
+# --- Header with Travel Theme ---
 st.markdown(
-    """
-    <div style="background-color: #00355F; padding: 20px 10px; border-radius: 8px; text-align: center;">
-        <h1 style="color: white; font-size: 36px;">✈️ WLT Template Generator</h1>
-    </div>
-    """,
+    "<div style='background-color:#00355F;padding:20px;border-radius:8px;'>"
+    "<h1 style='color:white;text-align:center;'>✈️ WLT Template Generator</h1>"
+    "</div>",
     unsafe_allow_html=True
 )
-
-st.write("")
 
 # --- Template Selection ---
 template_type = st.selectbox("Select Template Type", ["WLT Landing Page Template", "WLT Curated Trips Template"])
 
-st.write("")
+# --- Shared Fields ---
+st.subheader("Template Details")
+template_name = st.text_input("Template Name", help="This is the internal name of the template")
+page_title = st.text_input("Page Title", help="The main page title shown in the browser tab")
+header_text = st.text_input("Header", help="The main heading displayed at the top of the page")
+brand = st.text_input("Brand", help="The brand code, e.g., GPS")
+pos = st.text_input("POS", help="Point of sale, e.g., PHILIPPINEAIRLINES_PH")
+locale = st.text_input("Locale", help="Language/Region setting, e.g., EN_PH")
 
-# --- Static Fields ---
-st.subheader("Basic Information")
-template_name = st.text_input("Template Name", help="This will be the internal name for your template.")
-page_title = st.text_input("Page Title", help="Displayed in the browser tab or page header.")
-header_text = st.text_input("Header", help="Main heading of the page.")
-brand = st.text_input("Brand", help="The Expedia Group brand this template is for.")
-pos = st.text_input("POS (Point of Sale)", help="E.g., EXPEDIA_US or HOTELS_COM_AU.")
-locale = st.text_input("Locale", help="E.g., EN_US, FR_FR.")
+# --- Load Base Template ---
+base_template = None
+try:
+    with open("fixed_base_template.json", "r") as f:
+        base_template = json.load(f)
+except Exception as e:
+    st.error("Base template not found or invalid.")
 
+# --- Dynamic Content ID Fields ---
 st.markdown("---")
-
-# --- Content ID Fields ---
 st.subheader("Content IDs")
 
-# LANDING PAGE MAPPING
-landing_page_content_ids = {
-    "Hero Banner Content ID": "Hero Full Bleed Banner",
-    "RTB 1 Content ID": "RTB 1",
-    "RTB 2 Content ID": "RTB 2",
-    "RTB 3 Content ID": "RTB 3",
-    "Tile 1 Content ID": "Tile 1",
-    "Tile 2 Content ID": "Tile 2"
-}
-
-landing_inputs = {}
-
 if template_type == "WLT Landing Page Template":
-    for label in landing_page_content_ids:
-        landing_inputs[label] = st.text_input(label, help=f"Content ID for {label}")
-
-# --- Upload Base Template ---
-st.markdown("---")
-st.subheader("Upload Base Template")
-uploaded_file = st.file_uploader("Upload your base JSON file", type=["json"])
-base_template = None
-
-if uploaded_file:
-    try:
-        base_template = json.load(uploaded_file)
-        st.success("Base template loaded successfully.")
-    except Exception as e:
-        st.error(f"Error loading JSON: {e}")
+    hero_banner = st.text_input("Hero Banner Content ID", help="Used for the main hero image/banner shown at the top of the landing page, typically on desktop devices.")
+    rtb1 = st.text_input("RTB 1 Content ID", help="Content ID for the first 'Reason To Believe' section.")
+    rtb2 = st.text_input("RTB 2 Content ID", help="Content ID for the second 'Reason To Believe' section.")
+    rtb3 = st.text_input("RTB 3 Content ID", help="Content ID for the third 'Reason To Believe' section.")
+    tile1 = st.text_input("Tile 1 Content ID", help="Content ID for the first editorial tile (left).")
+    tile2 = st.text_input("Tile 2 Content ID", help="Content ID for the second editorial tile (right).")
+elif template_type == "WLT Curated Trips Template":
+    curated1 = st.text_input("Curated Section Header 1 Content ID", help="The first subheading for curated trip recommendations.")
+    curated2 = st.text_input("Curated Section Header 2 Content ID", help="The second subheading for curated trip recommendations.")
+    curated3 = st.text_input("Curated Section Header 3 Content ID", help="The third subheading for curated trip recommendations.")
+    hero = st.text_input("Hero Banner Content ID", help="Used for the main hero image/banner shown at the top of the landing page, typically on desktop devices.")
+    intro = st.text_input("Body Copy Introduction Content ID", help="Introductory paragraph or text block that appears below the title.")
+    title = st.text_input("Body Copy Title Content ID", help="Headline or main title text that introduces the body content section.")
+    author = st.text_input("Author Attribution Content ID", help="Author name or contributor details, typically displayed at the bottom of body content.")
+    incentive = st.text_input("Body Copy Incentive Content ID", help="A promotional block or message containing incentive details, e.g., gift card rewards.")
+    terms = st.text_input("Terms & Conditions Content ID", help="Legal or disclaimers associated with the curated trips or promotions on the page.")
 
 # --- Generate JSON ---
 if st.button("Generate Template JSON"):
-    try:
-        if base_template:
-            populated_template = copy.deepcopy(base_template)
-            populated_template[0]["name"] = template_name
-            populated_template[0]["title"] = page_title
-            populated_template[0]["header"] = header_text
-            populated_template[0]["brand"] = brand
-            populated_template[0]["pos"] = pos
-            populated_template[0]["locale"] = locale
+    if not base_template:
+        st.error("Base template could not be loaded.")
+    else:
+        try:
+            data = copy.deepcopy(base_template)
+            data[0]["name"] = template_name
+            data[0]["title"] = page_title
+            data[0]["header"] = header_text
+            data[0]["brand"] = brand
+            data[0]["pos"] = pos
+            data[0]["locale"] = locale
 
-            def insert_content_id(node, region_name, content_id):
-                if isinstance(node, dict):
-                    if node.get("attributes"):
-                        for attr in node["attributes"]:
-                            if attr["name"] == "name" and attr["value"] == region_name:
-                                # insert into module with contentId inside this region
-                                for child in node.get("childNodes", []):
-                                    for mod_attr in child.get("attributes", []):
-                                        if mod_attr["name"] == "contentId":
-                                            mod_attr["value"] = content_id
-                    for child in node.get("childNodes", []):
-                        insert_content_id(child, region_name, content_id)
-                elif isinstance(node, list):
-                    for item in node:
-                        insert_content_id(item, region_name, content_id)
-
-            # Insert Landing Page Content IDs
             if template_type == "WLT Landing Page Template":
-                for label, region in landing_page_content_ids.items():
-                    insert_content_id(populated_template[0]["flexNode"], region, landing_inputs[label])
+                data[0]["heroBannerContentId"] = hero_banner
+                data[0]["rtb1ContentId"] = rtb1
+                data[0]["rtb2ContentId"] = rtb2
+                data[0]["rtb3ContentId"] = rtb3
+                data[0]["tile1ContentId"] = tile1
+                data[0]["tile2ContentId"] = tile2
 
-            json_str = json.dumps(populated_template, indent=4)
+            json_str = json.dumps(data, indent=4)
             st.download_button("📥 Download JSON", data=json_str, file_name="generated_template.json", mime="application/json")
-    except Exception as e:
-        st.error(f"⚠️ Error generating template: {repr(e)}")
+        except Exception as e:
+            st.error(f"An error occurred while generating the JSON: {e}")
