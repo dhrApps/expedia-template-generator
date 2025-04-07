@@ -1,4 +1,3 @@
-
 import streamlit as st
 import json
 
@@ -60,3 +59,55 @@ elif template_type == "WLT Curated Trips Template":
 
 # Placeholder for next actions (e.g., JSON generation)
 st.markdown("---")
+
+# ------------------------- Generate JSON for WLT Landing Page Template -------------------------
+if template_type == "WLT Landing Page Template":
+    if st.button("Generate Template JSON"):
+        try:
+            with open("fixed_base_template.json", "r") as f:
+                base_template = json.load(f)
+
+            # Create a mapping of user inputs
+            lp_content_id_map = {
+                "Hero Full Bleed Banner": hero_banner,
+                "RTB 1": rtb1,
+                "RTB 2": rtb2,
+                "RTB 3": rtb3,
+                "Tile 1": tile1,
+                "Tile 2": tile2
+            }
+
+            def populate_content_ids(node):
+                if isinstance(node, dict):
+                    if node.get("type") == "REGION":
+                        region_name = None
+                        for attr in node.get("attributes", []):
+                            if attr.get("name") == "name":
+                                region_name = attr.get("value")
+                        if region_name in lp_content_id_map:
+                            for child in node.get("childNodes", []):
+                                if child.get("type") == "MODULE":
+                                    for attr in child.get("attributes", []):
+                                        if attr.get("name") == "contentId":
+                                            attr["value"] = lp_content_id_map[region_name]
+                        for child in node.get("childNodes", []):
+                            populate_content_ids(child)
+                    else:
+                        for key in node:
+                            populate_content_ids(node[key])
+                elif isinstance(node, list):
+                    for item in node:
+                        populate_content_ids(item)
+
+            # Modify the base template with the provided content IDs
+            populate_content_ids(base_template)
+
+            # Download button for JSON
+            st.download_button(
+                "📥 Download JSON",
+                data=json.dumps(base_template, indent=4),
+                file_name="generated_landing_template.json",
+                mime="application/json"
+            )
+        except Exception as e:
+            st.error(f"⚠️ Error generating template: {repr(e)}")
