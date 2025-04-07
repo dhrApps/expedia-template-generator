@@ -50,6 +50,34 @@ def assign_content_ids(flex_node, region_map):
         assign_content_ids(child, region_map)
 
 # Generate JSON
+
+# === Template Type Dropdown ===
+template_type = st.selectbox("Select Template Type", ["WLT Landing Page Template", "WLT Curated Trips Template"])
+
+st.markdown("---")
+
+# === Dynamic Content ID Fields ===
+if template_type == "WLT Landing Page Template":
+    st.subheader("Landing Page Content IDs")
+    hero_banner = st.text_input("Hero Banner Content ID", help="Used for the main hero image/banner shown at the top of the landing page.")
+    rtb1 = st.text_input("RTB 1 Content ID", help="First block under 'Reasons to Believe' section.")
+    rtb2 = st.text_input("RTB 2 Content ID", help="Second block under 'Reasons to Believe' section.")
+    rtb3 = st.text_input("RTB 3 Content ID", help="Third block under 'Reasons to Believe' section.")
+    tile1 = st.text_input("Tile 1 Content ID", help="First promotional tile (image/text block).")
+    tile2 = st.text_input("Tile 2 Content ID", help="Second promotional tile (image/text block).")
+elif template_type == "WLT Curated Trips Template":
+    st.subheader("Curated Trips Content IDs")
+    hero_banner = st.text_input("Hero Banner Content ID (HERO - Desktop)", help="Used for the main hero image/banner shown at the top of the landing page, typically on desktop devices.")
+    body_title = st.text_input("Body Copy Title Content ID (Body Copy - Title)", help="Headline or main title text that introduces the body content section.")
+    body_intro = st.text_input("Body Copy Introduction Content ID (Body Copy Intro)", help="Introductory paragraph or text block that appears below the title, giving context or engaging copy.")
+    curated_1 = st.text_input("Curated Section Header 1 Content ID (Curated Headline 1)", help="The first subheading for curated trip recommendations.")
+    curated_2 = st.text_input("Curated Section Header 2 Content ID (Curated Headline 2)", help="The second subheading for curated trip recommendations.")
+    curated_3 = st.text_input("Curated Section Header 3 Content ID (Curated Headline 3)", help="The third subheading for curated trip recommendations.")
+    incentive = st.text_input("Body Copy Incentive Content ID (Body Copy + 50 GC)", help="A promotional block or message containing incentive details, e.g., gift card rewards.")
+    author = st.text_input("Author Attribution Content ID (Body Copy - Author)", help="Author name or contributor details, typically displayed at the bottom of body content.")
+    terms = st.text_input("Terms & Conditions Content ID (Curated Trips - Terms and Conditions)", help="Legal or disclaimers associated with the curated trips or promotions on the page.")
+
+
 if st.button("Generate Template JSON"):
     try:
         if base_template:
@@ -81,28 +109,3 @@ if st.button("Generate Template JSON"):
             st.download_button("📥 Download JSON", data=json_str, file_name="generated_template.json", mime="application/json")
     except Exception as e:
         st.error(f"⚠️ Error generating template: {repr(e)}")
-
-# --- Dynamic Content IDs Section Based on Template Type ---
-st.markdown("---")
-st.subheader("Content IDs")
-
-if template_type == "WLT Landing Page Template":
-    st.markdown("#### ✏️ Enter Content IDs for Landing Page")
-    hero_banner = st.text_input("Hero Banner Content ID", "", help="Used for the main hero image/banner shown at the top of the landing page, typically on desktop devices.")
-    rtb1 = st.text_input("RTB 1 Content ID", "", help="Content block 1 of 3 for Reasons To Believe section.")
-    rtb2 = st.text_input("RTB 2 Content ID", "", help="Content block 2 of 3 for Reasons To Believe section.")
-    rtb3 = st.text_input("RTB 3 Content ID", "", help="Content block 3 of 3 for Reasons To Believe section.")
-    tile1 = st.text_input("Tile 1 Content ID", "", help="First editorial tile in the two-tile Editorial On Canvas Banner.")
-    tile2 = st.text_input("Tile 2 Content ID", "", help="Second editorial tile in the two-tile Editorial On Canvas Banner.")
-
-elif template_type == "WLT Curated Trips Template":
-    st.markdown("#### ✏️ Enter Content IDs for Curated Trips")
-    hero_banner = st.text_input("Hero Banner Content ID", "", help="Used for the main hero image/banner shown at the top of the curated trips page.")
-    body_title = st.text_input("Body Copy Title Content ID", "", help="Headline or main title text that introduces the body content section.")
-    body_intro = st.text_input("Body Copy Introduction Content ID", "", help="Introductory paragraph or text block that gives context or engaging copy.")
-    curated1 = st.text_input("Curated Section Header 1 Content ID", "", help="The first subheading for curated trip recommendations.")
-    curated2 = st.text_input("Curated Section Header 2 Content ID", "", help="The second subheading for curated trip recommendations.")
-    curated3 = st.text_input("Curated Section Header 3 Content ID", "", help="The third subheading for curated trip recommendations.")
-    incentive = st.text_input("Body Copy + 50 GC Content ID", "", help="A promotional block or message containing incentive details, e.g., gift card rewards.")
-    author = st.text_input("Author Attribution Content ID", "", help="Author name or contributor details, typically displayed at the bottom of body content.")
-    terms = st.text_input("Terms & Conditions Content ID", "", help="Legal or disclaimers associated with the curated trips or promotions on the page.")
