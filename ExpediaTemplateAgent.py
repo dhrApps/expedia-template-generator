@@ -3,12 +3,47 @@ import streamlit as st
 import json
 
 # Custom-styled Title with Expedia Group theme
+
+    # Template Type Selector
+    template_type = st.selectbox("Select Template Type", ["WLT Landing Page Template", "WLT Curated Trips Template"])
+
+    st.markdown("---")
+    st.subheader("Content IDs")
+
+    if template_type == "WLT Landing Page Template":
+        st.text_input("Hero Banner Content ID", key="hero_banner", help="Used for the main hero image/banner shown at the top of the landing page, typically on desktop devices.")
+        st.text_input("RTB 1 Content ID", key="rtb1", help="First Reasons-To-Believe block.")
+        st.text_input("RTB 2 Content ID", key="rtb2", help="Second Reasons-To-Believe block.")
+        st.text_input("RTB 3 Content ID", key="rtb3", help="Third Reasons-To-Believe block.")
+        st.text_input("Tile 1 Content ID", key="tile1", help="First tile image or block in the layout.")
+        st.text_input("Tile 2 Content ID", key="tile2", help="Second tile image or block in the layout.")
+
+    elif template_type == "WLT Curated Trips Template":
+        st.text_input("Hero Banner Content ID (HERO - Desktop)", key="hero_banner_ct", help="Used for the main hero image/banner shown at the top of the curated trips page.")
+        st.text_input("Body Copy Title Content ID (Body Copy - Title)", key="body_title_ct", help="Headline or main title text that introduces the body content section.")
+        st.text_input("Body Copy Introduction Content ID (Body Copy Intro)", key="body_intro_ct", help="Introductory paragraph or text block that appears below the title.")
+        st.text_input("Curated Section Header 1 Content ID (Curated Headline 1)", key="headline1_ct", help="The first subheading for curated trip recommendations.")
+        st.text_input("Curated Section Header 2 Content ID (Curated Headline 2)", key="headline2_ct", help="The second subheading for curated trip recommendations.")
+        st.text_input("Curated Section Header 3 Content ID (Curated Headline 3)", key="headline3_ct", help="The third subheading for curated trip recommendations.")
+        st.text_input("Body Copy Incentive Content ID (Body Copy + 50 GC)", key="incentive_ct", help="A promotional block or message containing incentive details, e.g., gift card rewards.")
+        st.text_input("Author Attribution Content ID (Body Copy - Author)", key="author_ct", help="Author name or contributor details.")
+        st.text_input("Terms & Conditions Content ID (Curated Trips - Terms and Conditions)", key="terms_ct", help="Legal or disclaimers associated with the curated trips.")
+
+
 st.markdown("""
 <h1 style='color: #00355F; text-align: center; font-size: 2.5em; font-weight: bold;'>
 ✈️ WLT Template Generator
 </h1>
 """, unsafe_allow_html=True)
 
+
+# Template type selection
+st.markdown("### --- Template Type Selection ---")
+template_type = st.selectbox(
+    "Select Template Type",
+    ["WLT Landing Page Template", "WLT Curated Trips Template"],
+    help="Choose the template structure you want to generate"
+)
 # User Inputs with help text and NO default values
 template_name = st.text_input("Template Name", help="Enter a unique name for this template.")
 page_title = st.text_input("Page Title", help="Displayed as the main title on the landing page.")
@@ -50,34 +85,6 @@ def assign_content_ids(flex_node, region_map):
         assign_content_ids(child, region_map)
 
 # Generate JSON
-
-# === Template Type Dropdown ===
-template_type = st.selectbox("Select Template Type", ["WLT Landing Page Template", "WLT Curated Trips Template"])
-
-st.markdown("---")
-
-# === Dynamic Content ID Fields ===
-if template_type == "WLT Landing Page Template":
-    st.subheader("Landing Page Content IDs")
-    hero_banner = st.text_input("Hero Banner Content ID", help="Used for the main hero image/banner shown at the top of the landing page.")
-    rtb1 = st.text_input("RTB 1 Content ID", help="First block under 'Reasons to Believe' section.")
-    rtb2 = st.text_input("RTB 2 Content ID", help="Second block under 'Reasons to Believe' section.")
-    rtb3 = st.text_input("RTB 3 Content ID", help="Third block under 'Reasons to Believe' section.")
-    tile1 = st.text_input("Tile 1 Content ID", help="First promotional tile (image/text block).")
-    tile2 = st.text_input("Tile 2 Content ID", help="Second promotional tile (image/text block).")
-elif template_type == "WLT Curated Trips Template":
-    st.subheader("Curated Trips Content IDs")
-    hero_banner = st.text_input("Hero Banner Content ID (HERO - Desktop)", help="Used for the main hero image/banner shown at the top of the landing page, typically on desktop devices.")
-    body_title = st.text_input("Body Copy Title Content ID (Body Copy - Title)", help="Headline or main title text that introduces the body content section.")
-    body_intro = st.text_input("Body Copy Introduction Content ID (Body Copy Intro)", help="Introductory paragraph or text block that appears below the title, giving context or engaging copy.")
-    curated_1 = st.text_input("Curated Section Header 1 Content ID (Curated Headline 1)", help="The first subheading for curated trip recommendations.")
-    curated_2 = st.text_input("Curated Section Header 2 Content ID (Curated Headline 2)", help="The second subheading for curated trip recommendations.")
-    curated_3 = st.text_input("Curated Section Header 3 Content ID (Curated Headline 3)", help="The third subheading for curated trip recommendations.")
-    incentive = st.text_input("Body Copy Incentive Content ID (Body Copy + 50 GC)", help="A promotional block or message containing incentive details, e.g., gift card rewards.")
-    author = st.text_input("Author Attribution Content ID (Body Copy - Author)", help="Author name or contributor details, typically displayed at the bottom of body content.")
-    terms = st.text_input("Terms & Conditions Content ID (Curated Trips - Terms and Conditions)", help="Legal or disclaimers associated with the curated trips or promotions on the page.")
-
-
 if st.button("Generate Template JSON"):
     try:
         if base_template:
