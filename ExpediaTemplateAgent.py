@@ -4,7 +4,7 @@ import json
 import copy
 
 # Set page config
-st.set_page_config(page_title="WLT Template Generator", layout="wide")
+st.set_page_config(page_title="WLT Template Generator", layout="centered")
 
 # --- Header with Travel Theme ---
 st.markdown(
