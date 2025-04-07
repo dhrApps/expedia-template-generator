@@ -64,19 +64,6 @@ st.markdown("---")
 if template_type == "WLT Landing Page Template":
     if st.button("Generate Template JSON"):
         try:
-            populated_template = base_template.copy()
-            if template_type == "WLT Landing Page Template":
-                populated_template[0]["heroBannerContentId"] = hero_banner
-                populated_template[0]["rtb1ContentId"] = rtb1
-                populated_template[0]["rtb2ContentId"] = rtb2
-                populated_template[0]["rtb3ContentId"] = rtb3
-                populated_template[0]["tile1ContentId"] = tile1
-                populated_template[0]["tile2ContentId"] = tile2
-            json_str = json.dumps(populated_template, indent=4)
-            st.download_button("📥 Download JSON", data=json_str, file_name="generated_template.json", mime="application/json")
-        except Exception as err:
-            st.error(f"⚠️ Error generating template: {repr(err)}")
-        try:
             with open("fixed_base_template.json", "r") as f:
                 base_template = json.load(f)
 
