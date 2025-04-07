@@ -5,7 +5,16 @@ import json
 # Custom-styled Title with Expedia Group theme
 st.markdown("""
 <h1 style='color: #00355F; text-align: center; font-size: 2.5em; font-weight: bold;'>
-✈️ WLT Template Generator
+✈️ WLT Template Generator")
+
+# --- Template Type Selection ---
+template_type = st.selectbox(
+    "Select Template Type",
+    ["WLT Landing Page Template", "WLT Curated Trips Template"],
+    help="Choose the template structure you want to generate"
+)
+
+st.markdown("
 </h1>
 """, unsafe_allow_html=True)
 
