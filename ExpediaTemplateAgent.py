@@ -4,7 +4,7 @@ import json
 import copy
 
 # Set page config
-st.set_page_config(page_title="WLT Template Generator", layout="centred")
+st.set_page_config(page_title="WLT Template Generator", layout="wide")
 
 # --- Header with Travel Theme ---
 st.markdown(
@@ -39,7 +39,6 @@ st.markdown("---")
 st.subheader("Content IDs")
 
 if template_type == "WLT Landing Page Template":
-    st.markdown("##### 🔹 Landing Page Content ID Label Mapping")
     hero_banner = st.text_input("Hero Banner Content ID", help="Used for the main hero image/banner shown at the top of the landing page, typically on desktop devices.")
     rtb1 = st.text_input("RTB 1 Content ID", help="Content ID for the first 'Reason To Believe' section.")
     rtb2 = st.text_input("RTB 2 Content ID", help="Content ID for the second 'Reason To Believe' section.")
@@ -47,7 +46,6 @@ if template_type == "WLT Landing Page Template":
     tile1 = st.text_input("Tile 1 Content ID", help="Content ID for the first editorial tile (left).")
     tile2 = st.text_input("Tile 2 Content ID", help="Content ID for the second editorial tile (right).")
 elif template_type == "WLT Curated Trips Template":
-    st.markdown("##### 🌍 Curated Trips Content ID Label Mapping")
     curated1 = st.text_input("Curated Section Header 1 Content ID", help="The first subheading for curated trip recommendations.")
     curated2 = st.text_input("Curated Section Header 2 Content ID", help="The second subheading for curated trip recommendations.")
     curated3 = st.text_input("Curated Section Header 3 Content ID", help="The third subheading for curated trip recommendations.")
