@@ -6,7 +6,7 @@ st.set_page_config(layout="centered")
 
 st.markdown("""
 <div style="background-color:#00355F;padding:30px;border-radius:10px;margin-bottom:20px;">
-    <h1 style="color:white;text-align:center;">WLT Template Generator</h1>
+    <h1 style="color:white;text-align:center;">✈️ WLT Template Generator</h1>
 </div>
 """, unsafe_allow_html=True)
 
@@ -51,6 +51,7 @@ landing_page_fields = {
 content_inputs = {}
 
 
+
 def inject_content_ids_landing(json_obj, ui_inputs):
     mapping = {
         "Hero Banner": "Hero Banner Content ID",
@@ -66,14 +67,15 @@ def inject_content_ids_landing(json_obj, ui_inputs):
             if node.get("type") == "REGION":
                 region_name = next((a["value"] for a in node.get("attributes", []) if a["name"] == "name"), None)
                 if region_name and region_name in mapping:
-                    content_id_label = mapping[region_name]
-                    content_id_value = ui_inputs.get(content_id_label)
+                    content_id_value = ui_inputs.get(mapping[region_name])
                     if content_id_value:
                         for mod in node.get("childNodes", []):
                             if mod.get("type") == "MODULE":
-                                for attr in mod.get("attributes", []):
-                                    if attr.get("name") == "contentId":
-                                        attr["value"] = content_id_value
+                                content_id_attr = next((a for a in mod["attributes"] if a["name"] == "contentId"), None)
+                                if content_id_attr:
+                                    content_id_attr["value"] = content_id_value
+                                else:
+                                    mod["attributes"].append({"name": "contentId", "value": content_id_value})
             for v in node.values():
                 recursive_update(v)
         elif isinstance(node, list):
@@ -81,7 +83,6 @@ def inject_content_ids_landing(json_obj, ui_inputs):
                 recursive_update(item)
 
     recursive_update(json_obj[0])
-
 if template_type == "WLT Landing Page Template":
 
     for label in landing_page_fields:
