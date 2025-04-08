@@ -2,7 +2,7 @@
 
 def inject_content_ids_landing(json_obj, ui_inputs):
     mapping = {
-        "Hero Banner": "Hero Banner Content ID",
+        "Hero Full Bleed Banner": "Hero Banner Content ID",
         "RTB 1": "RTB 1 Content ID",
         "RTB 2": "RTB 2 Content ID",
         "RTB 3": "RTB 3 Content ID",
