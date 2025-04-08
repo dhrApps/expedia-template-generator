@@ -1,110 +1,95 @@
-
+# Expedia Template Generator App
 import streamlit as st
 import json
 
-st.set_page_config(layout="centered")
+# ---- App Title ----
+st.markdown("""
+<div style="background-color:#00355F;padding:20px;border-radius:10px">
+    <h1 style="color:white;text-align:center;">✈️ WLT Template Generator</h1>
+</div>
+""", unsafe_allow_html=True)
 
-# Title with emoji
-st.markdown(
-    "<h1 style='text-align: center; color: #00355F;'>✈️ WLT Template Generator</h1>",
-    unsafe_allow_html=True
-)
+# ---- Template Selector ----
+template_choice = st.selectbox("Select Template Type", ["WLT Landing Page Template", "WLT Curated Trips Template"])
 
-# Dropdown for template selection
-template_type = st.selectbox(
-    "Select Template Type",
-    ["WLT Landing Page Template", "WLT Curated Trips Template"],
-    help="Choose the template structure you want to generate"
-)
+# ---- Input Fields (shared) ----
+template_name = st.text_input("Template Name", help="Unique name for the template.")
+page_title = st.text_input("Page Title", help="Displayed as the browser tab title.")
+header_text = st.text_input("Header", help="Displayed prominently at the top of the page.")
 
-# Common fields
-st.markdown("### Template Details")
-template_name = st.text_input("Template Name", help="A unique name for this template")
-page_title = st.text_input("Page Title", help="Page title as seen in the browser tab")
-header_text = st.text_input("Header", help="Main header displayed on the page")
-brand = st.text_input("Brand", help="Brand associated with this template, e.g., GPS")
-pos = st.text_input("POS", help="Point of sale, e.g., PHILIPPINEAIRLINES_PH")
-locale = st.text_input("Locale", help="Locale setting, e.g., EN_PH")
+# ---- Dynamic Section: Content IDs ----
+st.markdown("---")
+st.markdown("### Content IDs")
 
-# Conditional Content ID Fields
-if template_type == "WLT Landing Page Template":
-    st.markdown("### Content IDs (Landing Page)")
-    hero_banner = st.text_input("Hero Banner Content ID", help="Used for the main hero image/banner shown at the top of the landing page, typically on desktop devices.")
-    rtb1 = st.text_input("RTB 1 Content ID", help="Used for the first trust-building message or block")
-    rtb2 = st.text_input("RTB 2 Content ID", help="Used for the second trust-building message or block")
-    rtb3 = st.text_input("RTB 3 Content ID", help="Used for the third trust-building message or block")
-    tile1 = st.text_input("Tile 1 Content ID", help="Used for the first tile, such as a featured trip")
-    tile2 = st.text_input("Tile 2 Content ID", help="Used for the second tile, such as a supporting trip")
+# Sample fields for each template
+if template_choice == "WLT Landing Page Template":
+    hero_banner = st.text_input("Hero Banner Content ID", help="Used for the main hero image/banner.")
+    rtb1 = st.text_input("RTB 1 Content ID", help="First ‘reason to believe’ module.")
+    rtb2 = st.text_input("RTB 2 Content ID", help="Second ‘reason to believe’ module.")
+    rtb3 = st.text_input("RTB 3 Content ID", help="Third ‘reason to believe’ module.")
+    tile1 = st.text_input("Tile 1 Content ID", help="First editorial tile content.")
+    tile2 = st.text_input("Tile 2 Content ID", help="Second editorial tile content.")
 
-elif template_type == "WLT Curated Trips Template":
-    st.markdown("### Content IDs (Curated Trips)")
-    hero_banner = st.text_input("Hero Banner Content ID (HERO - Desktop)", help="Main hero image/banner shown at the top of the page")
-    body_title = st.text_input("Body Copy Title Content ID (Body Copy - Title)", help="Headline or title of the body copy section")
-    body_intro = st.text_input("Body Copy Introduction Content ID (Body Copy Intro)", help="Intro paragraph that follows the body copy title")
-    curated_headline_1 = st.text_input("Curated Section Header 1 Content ID (Curated Headline 1)", help="First header in curated trips section")
-    curated_headline_2 = st.text_input("Curated Section Header 2 Content ID (Curated Headline 2)", help="Second header in curated trips section")
-    curated_headline_3 = st.text_input("Curated Section Header 3 Content ID (Curated Headline 3)", help="Third header in curated trips section")
-    promo_block = st.text_input("Body Copy Incentive Content ID (Body Copy + 50 GC)", help="Incentive or promotional message")
-    author = st.text_input("Author Attribution Content ID (Body Copy - Author)", help="Author name or credit line")
-    terms = st.text_input("Terms & Conditions Content ID (Curated Trips - Terms and Conditions)", help="Legal terms and conditions")
+    # Generate Landing Page JSON
+    if st.button("Generate Template JSON"):
+        with open("fixed_base_template.json") as f:
+            base_json = json.load(f)
+        base_json[0]["name"] = template_name
+        base_json[0]["title"] = page_title
+        base_json[0]["header"] = header_text
 
-# Load the correct base template
-if template_type == "WLT Landing Page Template":
-    json_path = "fixed_base_template.json"
-    try:
-        with open(json_path, "r") as f:
-            base_template = json.load(f)
-    except Exception as e:
-        st.error(f"Failed to load base template: {e}")
-        base_template = None
-else:
-    base_template = None  # Curated Trips not implemented yet
+        def set_content_id(region_name, content_id):
+            for region in base_json[0]["flexNode"]["childNodes"]:
+                if any(attr.get("name") == "name" and attr.get("value") == region_name for attr in region.get("attributes", [])):
+                    for module in region.get("childNodes", []):
+                        for attr in module.get("attributes", []):
+                            if attr.get("name") == "contentId":
+                                attr["value"] = content_id
 
-# Generate JSON Button
-if template_type == "WLT Landing Page Template" and st.button("Generate Template JSON"):
-    try:
-        if base_template:
-            updated = base_template.copy()
-            updated[0]["name"] = template_name
-            updated[0]["title"] = page_title
-            updated[0]["header"] = header_text
-            updated[0]["brand"] = brand
-            updated[0]["pos"] = pos
-            updated[0]["locale"] = locale
+        set_content_id("Hero Full Bleed Banner", hero_banner)
+        set_content_id("RTB 1", rtb1)
+        set_content_id("RTB 2", rtb2)
+        set_content_id("RTB 3", rtb3)
+        set_content_id("Tile 1", tile1)
+        set_content_id("Tile 2", tile2)
 
-            # Walk the structure and insert contentId where needed based on region name
-            def inject_content_id(node):
-                if isinstance(node, dict):
-                    if node.get("type") == "REGION":
-                        region_name = ""
-                        for attr in node.get("attributes", []):
-                            if attr.get("name") == "name":
-                                region_name = attr.get("value", "")
-                                break
-                        for child in node.get("childNodes", []):
-                            if child.get("type") == "MODULE":
-                                for attr in child.get("attributes", []):
-                                    if attr.get("name") == "contentId":
-                                        if region_name == "Hero Full Bleed Banner":
-                                            attr["value"] = hero_banner
-                                        elif region_name == "RTB 1":
-                                            attr["value"] = rtb1
-                                        elif region_name == "RTB 2":
-                                            attr["value"] = rtb2
-                                        elif region_name == "RTB 3":
-                                            attr["value"] = rtb3
-                                        elif region_name == "Tile 1":
-                                            attr["value"] = tile1
-                                        elif region_name == "Tile 2":
-                                            attr["value"] = tile2
-                    for child in node.get("childNodes", []):
-                        inject_content_id(child)
-                elif isinstance(node, list):
-                    for item in node:
-                        inject_content_id(item)
+        st.download_button("📥 Download JSON", data=json.dumps(base_json, indent=4), file_name="generated_template.json")
 
-            inject_content_id(updated[0]["flexNode"]["childNodes"])
-            json_str = json.dumps(updated, indent=4)
-            st.download_button("📥 Download JSON", data=json_str, file_name="generated_template.json", mime="application/json")
-    except Exception as e:
-        st.error(f"⚠️ Error generating template: {repr(e)}")
+elif template_choice == "WLT Curated Trips Template":
+    hero = st.text_input("Hero Banner Content ID", help="Top hero banner for curated trips.")
+    body_title = st.text_input("Body Copy Title Content ID", help="Main heading text in body.")
+    body_intro = st.text_input("Body Copy Introduction Content ID", help="Introductory paragraph text.")
+    curated1 = st.text_input("Curated Section Header 1 Content ID", help="Headline for curated trip section 1.")
+    curated2 = st.text_input("Curated Section Header 2 Content ID", help="Headline for curated trip section 2.")
+    curated3 = st.text_input("Curated Section Header 3 Content ID", help="Headline for curated trip section 3.")
+    gc50 = st.text_input("Body Copy + 50 GC Content ID", help="Gift card or incentive section.")
+    author = st.text_input("Author Attribution Content ID", help="Name/attribution displayed below content.")
+    tnc = st.text_input("Terms & Conditions Content ID", help="Content block for legal or terms.")
+
+    if st.button("Generate Template JSON"):
+        with open("exportedTemplates-47495.json") as f:
+            base_json = json.load(f)
+
+        def deep_insert(module_label, cid):
+            for node in base_json[0]["flexNode"]["childNodes"]:
+                if "childNodes" in node:
+                    for sub in node["childNodes"]:
+                        if "attributes" in sub:
+                            for attr in sub["attributes"]:
+                                if attr["name"] == "name" and attr["value"] == "editorial":
+                                    for mod_attr in sub["attributes"]:
+                                        if mod_attr["name"] == "contentId" and sub["attributes"]:
+                                            if module_label in str(sub["attributes"]):
+                                                mod_attr["value"] = cid
+
+        deep_insert("Hero", hero)
+        deep_insert("Body Copy - Title", body_title)
+        deep_insert("Body Copy Intro", body_intro)
+        deep_insert("Curated Headline 1", curated1)
+        deep_insert("Curated Headline 2", curated2)
+        deep_insert("Curated Headline 3", curated3)
+        deep_insert("Body Copy + 50 GC", gc50)
+        deep_insert("Body Copy - Author", author)
+        deep_insert("Curated Trips - Terms and Conditions", tnc)
+
+        st.download_button("📥 Download JSON", data=json.dumps(base_json, indent=4), file_name="curated_trips_template.json")
