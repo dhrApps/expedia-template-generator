@@ -2,7 +2,7 @@
 import streamlit as st
 import json
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="centered")
 
 # Title with emoji
 st.markdown(
