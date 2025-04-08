@@ -169,6 +169,39 @@ def inject_content_ids_curated(json_obj, ui_inputs):
 
 # Button to generate and download JSON
 st.markdown("---")
+
+def inject_content_ids_landing(json_obj, ui_inputs):
+    mapping = {
+        "Hero Banner": "Hero Banner Content ID",
+        "RTB 1": "RTB 1 Content ID",
+        "RTB 2": "RTB 2 Content ID",
+        "RTB 3": "RTB 3 Content ID",
+        "Tile 1": "Tile 1 Content ID",
+        "Tile 2": "Tile 2 Content ID"
+    }
+
+    def recursive_update(node):
+        if isinstance(node, dict):
+            if node.get("type") == "REGION":
+                region_name = next((a["value"] for a in node.get("attributes", []) if a["name"] == "name"), None)
+                if region_name and region_name in mapping:
+                    content_id_value = ui_inputs.get(mapping[region_name])
+                    if content_id_value:
+                        for mod in node.get("childNodes", []):
+                            if mod.get("type") == "MODULE":
+                                content_id_attr = next((a for a in mod["attributes"] if a["name"] == "contentId"), None)
+                                if content_id_attr:
+                                    content_id_attr["value"] = content_id_value
+                                else:
+                                    mod["attributes"].append({"name": "contentId", "value": content_id_value})
+            for v in node.values():
+                recursive_update(v)
+        elif isinstance(node, list):
+            for item in node:
+                recursive_update(item)
+
+    recursive_update(json_obj[0])
+
 if st.button("Generate Template JSON"):
     try:
         populated_template = base_template.copy()
