@@ -33,7 +33,7 @@ locale = st.text_input("Locale", help="e.g., EN_PH")
 st.markdown("---")
 if template_type == "WLT Landing Page Template":
     st.markdown("### Landing Page Content IDs")
-    hero_banner = st.text_input("Hero Banner Content ID", help="Used for the main hero image/banner shown at the top of the landing page, typically on desktop devices."), help="Used for the main hero image/banner shown at the top of the landing page.")
+    hero_banner = st.text_input("Hero Banner Content ID", help="Used for the main hero image/banner shown at the top of the landing page, typically on desktop devices.")
     rtb1 = st.text_input("RTB 1 Content ID", help="Content ID for the first Reason-To-Believe section."), help="First 'Reason to Believe' section.")
     rtb2 = st.text_input("RTB 2 Content ID", help="Content ID for the second Reason-To-Believe section."), help="Second 'Reason to Believe' section.")
     rtb3 = st.text_input("RTB 3 Content ID", help="Content ID for the third Reason-To-Believe section."), help="Third 'Reason to Believe' section.")
