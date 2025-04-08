@@ -1,7 +1,4 @@
 
-import streamlit as st
-import json
-
 
 def inject_content_ids_landing(json_obj, ui_inputs):
     mapping = {
@@ -34,6 +31,10 @@ def inject_content_ids_landing(json_obj, ui_inputs):
                 recursive_update(item)
 
     recursive_update(json_obj[0])
+
+
+import streamlit as st
+import json
 
 st.set_page_config(layout="centered")
 
