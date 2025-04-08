@@ -1,23 +1,23 @@
-
 import streamlit as st
 import json
+import copy
 
 st.set_page_config(layout="centered")
 
-# Title with emoji
+# ---- Page Header ----
 st.markdown(
     "<h1 style='text-align: center; color: #00355F;'>✈️ WLT Template Generator</h1>",
     unsafe_allow_html=True
 )
 
-# Dropdown for template selection
+# ---- Template Type Selection ----
 template_type = st.selectbox(
     "Select Template Type",
     ["WLT Landing Page Template", "WLT Curated Trips Template"],
     help="Choose the template structure you want to generate"
 )
 
-# Common fields
+# ---- Template Details Section ----
 st.markdown("### Template Details")
 template_name = st.text_input("Template Name", help="A unique name for this template")
 page_title = st.text_input("Page Title", help="Page title as seen in the browser tab")
@@ -26,7 +26,7 @@ brand = st.text_input("Brand", help="Brand associated with this template, e.g., 
 pos = st.text_input("POS", help="Point of sale, e.g., PHILIPPINEAIRLINES_PH")
 locale = st.text_input("Locale", help="Locale setting, e.g., EN_PH")
 
-# Conditional Content ID Fields
+# ---- Content IDs Section (Dynamic) ----
 if template_type == "WLT Landing Page Template":
     st.markdown("### Content IDs (Landing Page)")
     hero_banner = st.text_input("Hero Banner Content ID", help="Used for the main hero image/banner shown at the top of the landing page, typically on desktop devices.")
@@ -36,75 +36,110 @@ if template_type == "WLT Landing Page Template":
     tile1 = st.text_input("Tile 1 Content ID", help="Used for the first tile, such as a featured trip")
     tile2 = st.text_input("Tile 2 Content ID", help="Used for the second tile, such as a supporting trip")
 
+    # Load Landing Page base JSON
+    with open("fixed_base_template.json", "r") as f:
+        base_template = json.load(f)
+
+    def assign_content_id_by_name(node, name_map):
+        if isinstance(node, dict):
+            if node.get("type") == "REGION":
+                region_name = next((attr["value"] for attr in node.get("attributes", []) if attr["name"] == "name"), None)
+                if region_name and region_name in name_map:
+                    for child in node.get("childNodes", []):
+                        for attr in child.get("attributes", []):
+                            if attr["name"] == "contentId":
+                                attr["value"] = name_map[region_name]
+            for k, v in node.items():
+                assign_content_id_by_name(v, name_map)
+        elif isinstance(node, list):
+            for item in node:
+                assign_content_id_by_name(item, name_map)
+
+    if st.button("Generate Template JSON"):
+        try:
+            populated = copy.deepcopy(base_template)
+            populated[0]["name"] = template_name
+            populated[0]["title"] = page_title
+            populated[0]["header"] = header_text
+            populated[0]["brand"] = brand
+            populated[0]["pos"] = pos
+            populated[0]["locale"] = locale
+
+            content_map = {
+                "Hero Full Bleed Banner": hero_banner,
+                "RTB 1": rtb1,
+                "RTB 2": rtb2,
+                "RTB 3": rtb3,
+                "Tile 1": tile1,
+                "Tile 2": tile2
+            }
+
+            assign_content_id_by_name(populated[0]["flexNode"], content_map)
+
+            json_str = json.dumps(populated, indent=4)
+            st.download_button("📥 Download JSON", data=json_str, file_name="generated_template.json", mime="application/json")
+        except Exception as e:
+            st.error(f"Error generating JSON: {e}")
+
 elif template_type == "WLT Curated Trips Template":
     st.markdown("### Content IDs (Curated Trips)")
-    hero_banner = st.text_input("Hero Banner Content ID (HERO - Desktop)", help="Main hero image/banner shown at the top of the page")
-    body_title = st.text_input("Body Copy Title Content ID (Body Copy - Title)", help="Headline or title of the body copy section")
-    body_intro = st.text_input("Body Copy Introduction Content ID (Body Copy Intro)", help="Intro paragraph that follows the body copy title")
-    curated_headline_1 = st.text_input("Curated Section Header 1 Content ID (Curated Headline 1)", help="First header in curated trips section")
-    curated_headline_2 = st.text_input("Curated Section Header 2 Content ID (Curated Headline 2)", help="Second header in curated trips section")
-    curated_headline_3 = st.text_input("Curated Section Header 3 Content ID (Curated Headline 3)", help="Third header in curated trips section")
-    promo_block = st.text_input("Body Copy Incentive Content ID (Body Copy + 50 GC)", help="Incentive or promotional message")
-    author = st.text_input("Author Attribution Content ID (Body Copy - Author)", help="Author name or credit line")
-    terms = st.text_input("Terms & Conditions Content ID (Curated Trips - Terms and Conditions)", help="Legal terms and conditions")
+    hero = st.text_input("Hero Banner Content ID", help="Used for the main hero image/banner shown at the top of the landing page, typically on desktop devices.")
+    title = st.text_input("Body Copy Title Content ID", help="Headline or main title text that introduces the body content section.")
+    intro = st.text_input("Body Copy Introduction Content ID", help="Introductory paragraph or text block that appears below the title, giving context or engaging copy.")
+    headline1 = st.text_input("Curated Section Header 1 Content ID", help="The first subheading for curated trip recommendations.")
+    headline2 = st.text_input("Curated Section Header 2 Content ID", help="The second subheading for curated trip recommendations.")
+    headline3 = st.text_input("Curated Section Header 3 Content ID", help="The third subheading for curated trip recommendations.")
+    incentive = st.text_input("Body Copy Incentive Content ID", help="A promotional block or message containing incentive details, e.g., gift card rewards.")
+    author = st.text_input("Author Attribution Content ID", help="Author name or contributor details, typically displayed at the bottom of body content.")
+    terms = st.text_input("Terms & Conditions Content ID", help="Legal or disclaimers associated with the curated trips or promotions on the page.")
 
-# Load the correct base template
-if template_type == "WLT Landing Page Template":
-    json_path = "fixed_base_template.json"
-    try:
-        with open(json_path, "r") as f:
-            base_template = json.load(f)
-    except Exception as e:
-        st.error(f"Failed to load base template: {e}")
-        base_template = None
-else:
-    base_template = None  # Curated Trips not implemented yet
+    def map_curated_ids(template_json):
+        name_to_value = {
+            "HERO - Desktop": hero,
+            "Body Copy - Title": title,
+            "Body Copy Intro": intro,
+            "Curated Headline 1": headline1,
+            "Curated Headline 2": headline2,
+            "Curated Headline 3": headline3,
+            "Body Copy + 50 GC": incentive,
+            "Body Copy - Author": author,
+            "Curated Trips - Terms and Conditions": terms,
+        }
 
-# Generate JSON Button
-if template_type == "WLT Landing Page Template" and st.button("Generate Template JSON"):
-    try:
-        if base_template:
-            updated = base_template.copy()
-            updated[0]["name"] = template_name
-            updated[0]["title"] = page_title
-            updated[0]["header"] = header_text
-            updated[0]["brand"] = brand
-            updated[0]["pos"] = pos
-            updated[0]["locale"] = locale
+        def walk(node):
+            if isinstance(node, dict):
+                attrs = node.get("attributes", [])
+                for attr in attrs:
+                    if attr["name"] == "name":
+                        for label, val in name_to_value.items():
+                            if attr["value"] == label:
+                                for a in attrs:
+                                    if a["name"] == "contentId":
+                                        a["value"] = val
+                for v in node.values():
+                    walk(v)
+            elif isinstance(node, list):
+                for item in node:
+                    walk(item)
 
-            # Walk the structure and insert contentId where needed based on region name
-            def inject_content_id(node):
-                if isinstance(node, dict):
-                    if node.get("type") == "REGION":
-                        region_name = ""
-                        for attr in node.get("attributes", []):
-                            if attr.get("name") == "name":
-                                region_name = attr.get("value", "")
-                                break
-                        for child in node.get("childNodes", []):
-                            if child.get("type") == "MODULE":
-                                for attr in child.get("attributes", []):
-                                    if attr.get("name") == "contentId":
-                                        if region_name == "Hero Full Bleed Banner":
-                                            attr["value"] = hero_banner
-                                        elif region_name == "RTB 1":
-                                            attr["value"] = rtb1
-                                        elif region_name == "RTB 2":
-                                            attr["value"] = rtb2
-                                        elif region_name == "RTB 3":
-                                            attr["value"] = rtb3
-                                        elif region_name == "Tile 1":
-                                            attr["value"] = tile1
-                                        elif region_name == "Tile 2":
-                                            attr["value"] = tile2
-                    for child in node.get("childNodes", []):
-                        inject_content_id(child)
-                elif isinstance(node, list):
-                    for item in node:
-                        inject_content_id(item)
+        return walk
 
-            inject_content_id(updated[0]["flexNode"]["childNodes"])
-            json_str = json.dumps(updated, indent=4)
-            st.download_button("📥 Download JSON", data=json_str, file_name="generated_template.json", mime="application/json")
-    except Exception as e:
-        st.error(f"⚠️ Error generating template: {repr(e)}")
+    if st.button("Generate Template JSON"):
+        try:
+            with open("exportedTemplates-47495.json", "r") as f:
+                curated_template = json.load(f)
+            curated = copy.deepcopy(curated_template)
+            walk = map_curated_ids(curated[0]["flexNode"])
+            walk(curated[0]["flexNode"])
+
+            curated[0]["name"] = template_name
+            curated[0]["title"] = page_title
+            curated[0]["header"] = header_text
+            curated[0]["brand"] = brand
+            curated[0]["pos"] = pos
+            curated[0]["locale"] = locale
+
+            json_str = json.dumps(curated, indent=4)
+            st.download_button("📥 Download JSON", data=json_str, file_name="generated_curated_template.json", mime="application/json")
+        except Exception as e:
+            st.error(f"Error generating curated template: {e}")
