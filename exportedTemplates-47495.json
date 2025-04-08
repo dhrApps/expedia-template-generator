@@ -1,0 +1,2106 @@
+[
+  {
+    "brand": "EXPEDIA",
+    "pos": "EXPAARP",
+    "locale": "EN_US",
+    "name": "AARP_Heath-Wellness-Curated-Trips-LandingPage",
+    "title": "Health and Wellness Trips | AARP Travel Center",
+    "header": "Build Your Own Package",
+    "subHeadline": null,
+    "metaDescription": "We’ve curated a selection of the best health and wellness trips for AARP members, ranging from indulgent and relaxing vacations to high-energy, active adventures.",
+    "metaKeywords": null,
+    "metaRobots": "noindex,follow",
+    "flexNode": {
+      "type": "LAYOUT",
+      "childNodes": [
+        {
+          "type": "REGION",
+          "childNodes": [
+            {
+              "type": "REGION",
+              "childNodes": [
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "topics",
+                          "value": "Archaeology"
+                        },
+                        {
+                          "name": "view",
+                          "value": "single-column"
+                        },
+                        {
+                          "name": "name",
+                          "value": "editorial"
+                        },
+                        {
+                          "name": "contentId",
+                          "value": "66042710"
+                        },
+                        {
+                          "name": "boxType",
+                          "value": "no-padding-full"
+                        },
+                        {
+                          "name": "contentPurpose",
+                          "value": "Editorial"
+                        },
+                        {
+                          "name": "padding",
+                          "value": "none"
+                        },
+                        {
+                          "name": "displayImages",
+                          "value": "true"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143323
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "fullWidth",
+                      "value": "false"
+                    },
+                    {
+                      "name": "backgroundColor",
+                      "value": "white"
+                    },
+                    {
+                      "name": "desktopWidth",
+                      "value": "100"
+                    },
+                    {
+                      "name": "tabletWidth",
+                      "value": "hidden"
+                    },
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "padding",
+                      "value": "none"
+                    },
+                    {
+                      "name": "smallTabletWidth",
+                      "value": "hidden"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "mobileWidth",
+                      "value": "hidden"
+                    },
+                    {
+                      "name": "name",
+                      "value": "HERO - Desktop"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143322
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "topics",
+                          "value": "Balloons"
+                        },
+                        {
+                          "name": "view",
+                          "value": "single-column"
+                        },
+                        {
+                          "name": "name",
+                          "value": "editorial"
+                        },
+                        {
+                          "name": "contentId",
+                          "value": "66042710"
+                        },
+                        {
+                          "name": "contentPurpose",
+                          "value": "Editorial"
+                        },
+                        {
+                          "name": "padding",
+                          "value": "none"
+                        },
+                        {
+                          "name": "displayImages",
+                          "value": "true"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143325
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "backgroundColor",
+                      "value": "white"
+                    },
+                    {
+                      "name": "desktopWidth",
+                      "value": "hidden"
+                    },
+                    {
+                      "name": "tabletWidth",
+                      "value": "100"
+                    },
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "padding",
+                      "value": "none"
+                    },
+                    {
+                      "name": "smallTabletWidth",
+                      "value": "100"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "mobileWidth",
+                      "value": "hidden"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Hero - Tablet"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143324
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "topics",
+                          "value": "Archaeology"
+                        },
+                        {
+                          "name": "view",
+                          "value": "single-column"
+                        },
+                        {
+                          "name": "name",
+                          "value": "editorial"
+                        },
+                        {
+                          "name": "contentId",
+                          "value": "66042711"
+                        },
+                        {
+                          "name": "boxType",
+                          "value": "no-padding-full"
+                        },
+                        {
+                          "name": "contentPurpose",
+                          "value": "Editorial"
+                        },
+                        {
+                          "name": "padding",
+                          "value": "none"
+                        },
+                        {
+                          "name": "displayImages",
+                          "value": "true"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143327
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "fullWidth",
+                      "value": "false"
+                    },
+                    {
+                      "name": "backgroundColor",
+                      "value": "white"
+                    },
+                    {
+                      "name": "desktopWidth",
+                      "value": "hidden"
+                    },
+                    {
+                      "name": "tabletWidth",
+                      "value": "hidden"
+                    },
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "padding",
+                      "value": "none"
+                    },
+                    {
+                      "name": "smallTabletWidth",
+                      "value": "hidden"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "mobileWidth",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "HERO - Mobile"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143326
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "topics",
+                          "value": "Archaeology"
+                        },
+                        {
+                          "name": "view",
+                          "value": "single-column"
+                        },
+                        {
+                          "name": "name",
+                          "value": "editorial"
+                        },
+                        {
+                          "name": "contentId",
+                          "value": "66116667"
+                        },
+                        {
+                          "name": "boxType",
+                          "value": "blossom-plain"
+                        },
+                        {
+                          "name": "contentPurpose",
+                          "value": "Introduction"
+                        },
+                        {
+                          "name": "padding",
+                          "value": "none"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143329
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "backgroundColor",
+                      "value": "white"
+                    },
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Body Copy - Title"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143328
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "topics",
+                          "value": "Archaeology"
+                        },
+                        {
+                          "name": "view",
+                          "value": "single-column"
+                        },
+                        {
+                          "name": "name",
+                          "value": "editorial"
+                        },
+                        {
+                          "name": "boxType",
+                          "value": "blossom-plain"
+                        },
+                        {
+                          "name": "contentPurpose",
+                          "value": "Introduction"
+                        },
+                        {
+                          "name": "padding",
+                          "value": "none"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143331
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "backgroundColor",
+                      "value": "white"
+                    },
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Body Copy Intro"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143330
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "separator"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        },
+                        {
+                          "name": "view",
+                          "value": "default"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143333
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Padding Line rule New"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143332
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "topics",
+                          "value": "Archaeology"
+                        },
+                        {
+                          "name": "view",
+                          "value": "single-column"
+                        },
+                        {
+                          "name": "name",
+                          "value": "editorial"
+                        },
+                        {
+                          "name": "contentId",
+                          "value": "66042530"
+                        },
+                        {
+                          "name": "boxType",
+                          "value": "blossom-plain"
+                        },
+                        {
+                          "name": "contentPurpose",
+                          "value": "Introduction"
+                        },
+                        {
+                          "name": "padding",
+                          "value": "none"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143335
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "backgroundColor",
+                      "value": "white"
+                    },
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Curated Headline 1"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143334
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        },
+                        {
+                          "name": "name",
+                          "value": "pre-bundled-curated-card-entry"
+                        },
+                        {
+                          "name": "packageSearchTemplateId",
+                          "value": "128"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143337
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Container128"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143336
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "separator"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        },
+                        {
+                          "name": "view",
+                          "value": "default"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143339
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Padding Line Rule"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143338
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "pre-bundled-curated-card-entry"
+                        },
+                        {
+                          "name": "packageSearchTemplateId",
+                          "value": "129"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143341
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Container129"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143340
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "separator"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        },
+                        {
+                          "name": "view",
+                          "value": "default"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143343
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Padding Line Rule"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143342
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "pre-bundled-curated-card-entry"
+                        },
+                        {
+                          "name": "packageSearchTemplateId",
+                          "value": "127"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143345
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Container127"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143344
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "separator"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        },
+                        {
+                          "name": "view",
+                          "value": "default"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143347
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Padding Line Rule"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143346
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "topics",
+                          "value": "Archaeology"
+                        },
+                        {
+                          "name": "view",
+                          "value": "single-column"
+                        },
+                        {
+                          "name": "name",
+                          "value": "editorial"
+                        },
+                        {
+                          "name": "contentId",
+                          "value": "66042531"
+                        },
+                        {
+                          "name": "boxType",
+                          "value": "blossom-plain"
+                        },
+                        {
+                          "name": "contentPurpose",
+                          "value": "Introduction"
+                        },
+                        {
+                          "name": "padding",
+                          "value": "none"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143349
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "backgroundColor",
+                      "value": "white"
+                    },
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Curated Headline 2"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143348
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "pre-bundled-curated-card-entry"
+                        },
+                        {
+                          "name": "packageSearchTemplateId",
+                          "value": "130"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143351
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Container130"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143350
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "separator"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        },
+                        {
+                          "name": "view",
+                          "value": "default"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143353
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Padding Line Rule"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143352
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "pre-bundled-curated-card-entry"
+                        },
+                        {
+                          "name": "packageSearchTemplateId",
+                          "value": "131"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143355
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Container131"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143354
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "separator"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        },
+                        {
+                          "name": "view",
+                          "value": "default"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143357
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Padding Line Rule"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143356
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "pre-bundled-curated-card-entry"
+                        },
+                        {
+                          "name": "packageSearchTemplateId",
+                          "value": "132"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143359
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Container132"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143358
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "separator"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        },
+                        {
+                          "name": "view",
+                          "value": "default"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143361
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Padding Line Rule"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143360
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "topics",
+                          "value": "Archaeology"
+                        },
+                        {
+                          "name": "view",
+                          "value": "single-column"
+                        },
+                        {
+                          "name": "name",
+                          "value": "editorial"
+                        },
+                        {
+                          "name": "contentId",
+                          "value": "66042532"
+                        },
+                        {
+                          "name": "boxType",
+                          "value": "blossom-plain"
+                        },
+                        {
+                          "name": "contentPurpose",
+                          "value": "Introduction"
+                        },
+                        {
+                          "name": "padding",
+                          "value": "none"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143363
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "backgroundColor",
+                      "value": "white"
+                    },
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Curated Headline 3"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143362
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "pre-bundled-curated-card-entry"
+                        },
+                        {
+                          "name": "packageSearchTemplateId",
+                          "value": "133"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143365
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Container133"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143364
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "separator"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        },
+                        {
+                          "name": "view",
+                          "value": "default"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143367
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Padding Line Rule"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143366
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "pre-bundled-curated-card-entry"
+                        },
+                        {
+                          "name": "packageSearchTemplateId",
+                          "value": "134"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143369
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Container134"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143368
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "separator"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        },
+                        {
+                          "name": "view",
+                          "value": "default"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143371
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Padding Line Rule"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143370
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "pre-bundled-curated-card-entry"
+                        },
+                        {
+                          "name": "packageSearchTemplateId",
+                          "value": "135"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143373
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Container135"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143372
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "separator"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        },
+                        {
+                          "name": "view",
+                          "value": "default"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143375
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Padding Line Rule"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143374
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "topics",
+                          "value": "Archaeology"
+                        },
+                        {
+                          "name": "view",
+                          "value": "single-column"
+                        },
+                        {
+                          "name": "name",
+                          "value": "editorial"
+                        },
+                        {
+                          "name": "contentId",
+                          "value": "66116669"
+                        },
+                        {
+                          "name": "boxType",
+                          "value": "blossom-plain"
+                        },
+                        {
+                          "name": "contentPurpose",
+                          "value": "Introduction"
+                        },
+                        {
+                          "name": "padding",
+                          "value": "none"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143377
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "backgroundColor",
+                      "value": "white"
+                    },
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Body Copy + 50 GC"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143376
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "topics",
+                          "value": "Archaeology"
+                        },
+                        {
+                          "name": "view",
+                          "value": "single-column"
+                        },
+                        {
+                          "name": "name",
+                          "value": "editorial"
+                        },
+                        {
+                          "name": "contentId",
+                          "value": "66042534"
+                        },
+                        {
+                          "name": "boxType",
+                          "value": "blossom-plain"
+                        },
+                        {
+                          "name": "contentPurpose",
+                          "value": "Introduction"
+                        },
+                        {
+                          "name": "padding",
+                          "value": "none"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143379
+                    },
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "separator"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        },
+                        {
+                          "name": "view",
+                          "value": "default"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143380
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "backgroundColor",
+                      "value": "white"
+                    },
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "brandModulePadding",
+                      "value": "bex_padding"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Body Copy - Author"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143378
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "campaignContentPagination",
+                          "value": "true"
+                        },
+                        {
+                          "name": "showCampaignTitle",
+                          "value": "false"
+                        },
+                        {
+                          "name": "alwaysShowCheckPrice",
+                          "value": "false"
+                        },
+                        {
+                          "name": "showCampaignDescription",
+                          "value": "false"
+                        },
+                        {
+                          "name": "displayPrice",
+                          "value": "true"
+                        },
+                        {
+                          "name": "contentPurpose",
+                          "value": "Deals"
+                        },
+                        {
+                          "name": "name",
+                          "value": "deals"
+                        },
+                        {
+                          "name": "displayHorizontalCards",
+                          "value": "false"
+                        },
+                        {
+                          "name": "contentId",
+                          "value": "60654432"
+                        },
+                        {
+                          "name": "showTermsAndConditions",
+                          "value": "false"
+                        },
+                        {
+                          "name": "view",
+                          "value": "grid"
+                        },
+                        {
+                          "name": "strategy",
+                          "value": "deals-pwa"
+                        },
+                        {
+                          "name": "campaignContentPageSize",
+                          "value": "3"
+                        },
+                        {
+                          "name": "campaignId",
+                          "value": "21562"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143382
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "title",
+                      "value": "Explore More Packages"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Deals"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143381
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        },
+                        {
+                          "name": "name",
+                          "value": "wizard-package-pwa"
+                        },
+                        {
+                          "name": "titleFromPageHeader",
+                          "value": "true"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143384
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "backgroundColor",
+                      "value": "white"
+                    },
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "defaultLOB",
+                      "value": "wizard-hotel-pwa"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "toggle",
+                      "value": "expanded"
+                    },
+                    {
+                      "name": "title",
+                      "value": "Build your own package"
+                    },
+                    {
+                      "name": "view",
+                      "value": "storefront-wizard"
+                    },
+                    {
+                      "name": "name",
+                      "value": "WIZARD"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143383
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "name",
+                          "value": "separator"
+                        },
+                        {
+                          "name": "clientSideOnly",
+                          "value": "true"
+                        },
+                        {
+                          "name": "view",
+                          "value": "default"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143386
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Padding Line Rule"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143385
+                },
+                {
+                  "type": "REGION",
+                  "childNodes": [
+                    {
+                      "type": "MODULE",
+                      "childNodes": [],
+                      "attributes": [
+                        {
+                          "name": "topics",
+                          "value": "Promotion"
+                        },
+                        {
+                          "name": "view",
+                          "value": "single-column"
+                        },
+                        {
+                          "name": "name",
+                          "value": "editorial"
+                        },
+                        {
+                          "name": "contentId",
+                          "value": "66116668"
+                        },
+                        {
+                          "name": "defaultContent",
+                          "value": "true"
+                        },
+                        {
+                          "name": "boxType",
+                          "value": "plain"
+                        },
+                        {
+                          "name": "contentPurpose",
+                          "value": "Legal"
+                        },
+                        {
+                          "name": "count",
+                          "value": "1"
+                        }
+                      ],
+                      "errors": {
+                        "errors": []
+                      },
+                      "class": "flex.manager.template.node.ModuleNode",
+                      "id": 3143388
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "region"
+                    },
+                    {
+                      "name": "width",
+                      "value": "100"
+                    },
+                    {
+                      "name": "name",
+                      "value": "Curated Trips-Terms and Conditions"
+                    }
+                  ],
+                  "errors": {
+                    "errors": []
+                  },
+                  "class": "flex.manager.template.node.RegionNode",
+                  "id": 3143387
+                }
+              ],
+              "attributes": [
+                {
+                  "name": "id",
+                  "value": "region"
+                },
+                {
+                  "name": "width",
+                  "value": "100"
+                },
+                {
+                  "name": "view",
+                  "value": "spacing-container"
+                },
+                {
+                  "name": "name",
+                  "value": "Spacing Container"
+                }
+              ],
+              "errors": {
+                "errors": []
+              },
+              "class": "flex.manager.template.node.RegionNode",
+              "id": 3143321
+            }
+          ],
+          "attributes": [
+            {
+              "name": "fullWidth",
+              "value": "true"
+            },
+            {
+              "name": "backgroundColor",
+              "value": "white"
+            },
+            {
+              "name": "id",
+              "value": "region"
+            },
+            {
+              "name": "width",
+              "value": "100"
+            },
+            {
+              "name": "name",
+              "value": "Full Width Background"
+            }
+          ],
+          "errors": {
+            "errors": []
+          },
+          "class": "flex.manager.template.node.RegionNode",
+          "id": 3143320
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "value": "flow"
+        }
+      ],
+      "errors": {
+        "errors": []
+      },
+      "class": "flex.manager.template.node.LayoutNode",
+      "id": 3143319
+    },
+    "softLockedBy": null,
+    "softLockStart": null,
+    "softLockEnd": null,
+    "groups": [],
+    "contextExperiments": [],
+    "warningMsg": []
+  }
+]
