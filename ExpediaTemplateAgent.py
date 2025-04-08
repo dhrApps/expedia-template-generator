@@ -1,49 +1,131 @@
 
 import streamlit as st
 import json
-import copy
 
 st.set_page_config(layout="centered")
 
-st.markdown(
-    """
-    <div style="background-color:#00355F;padding:10px;border-radius:10px;margin-bottom:20px">
-        <h1 style="color:white;text-align:center;">✈️ WLT Template Generator</h1>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+st.markdown("""
+<div style="background-color:#00355F;padding:30px;border-radius:10px;margin-bottom:20px;">
+    <h1 style="color:white;text-align:center;">✈️ WLT Template Generator</h1>
+</div>
+""", unsafe_allow_html=True)
 
+# Dropdown to choose template type
 template_type = st.selectbox("Select Template Type", ["WLT Landing Page Template", "WLT Curated Trips Template"])
 
-st.markdown("### Template Info")
+# Common input fields
+st.subheader("Basic Configuration")
+template_name = st.text_input("Template Name")
+page_title = st.text_input("Page Title")
+header_text = st.text_input("Header")
+brand = st.text_input("Brand")
+pos = st.text_input("POS")
+locale = st.text_input("Locale")
 
-template_name = st.text_input("Template Name", help="Name of the template.")
-page_title = st.text_input("Page Title", help="Title that appears in the browser tab.")
-header_text = st.text_input("Header", help="Main heading shown on the template.")
-brand = st.text_input("Brand", help="Brand associated with this template.")
-pos = st.text_input("POS", help="Point of sale (e.g., US, CA, JP).")
-locale = st.text_input("Locale", help="Locale code (e.g., en_US, ja_JP).")
-
+# Content ID Section
 st.markdown("---")
-st.markdown("### Content IDs")
+st.subheader("Content IDs")
+
+# Define inputs based on template type
+curated_trips_fields = {
+    "Hero Banner Content ID (HERO - Desktop)": "",
+    "Body Copy Title Content ID (Body Copy - Title)": "",
+    "Body Copy Introduction Content ID (Body Copy Intro)": "",
+    "Curated Section Header 1 Content ID (Curated Headline 1)": "",
+    "Curated Section Header 2 Content ID (Curated Headline 2)": "",
+    "Curated Section Header 3 Content ID (Curated Headline 3)": "",
+    "Body Copy Incentive Content ID (Body Copy + 50 GC)": "",
+    "Author Attribution Content ID (Body Copy - Author)": "",
+    "Terms & Conditions Content ID (Curated Trips - Terms and Conditions)": ""
+}
+
+landing_page_fields = {
+    "Hero Banner Content ID": "",
+    "RTB 1 Content ID": "",
+    "RTB 2 Content ID": "",
+    "RTB 3 Content ID": "",
+    "Tile 1 Content ID": "",
+    "Tile 2 Content ID": ""
+}
+
+content_inputs = {}
 
 if template_type == "WLT Landing Page Template":
-    hero_banner = st.text_input("Hero Banner Content ID", help="Used for the main hero image/banner shown at the top of the landing page.")
-    rtb1 = st.text_input("RTB 1 Content ID", help="First 'Reason to Believe' section.")
-    rtb2 = st.text_input("RTB 2 Content ID", help="Second 'Reason to Believe' section.")
-    rtb3 = st.text_input("RTB 3 Content ID", help="Third 'Reason to Believe' section.")
-    tile1 = st.text_input("Tile 1 Content ID", help="First image/text tile.")
-    tile2 = st.text_input("Tile 2 Content ID", help="Second image/text tile.")
-else:
-    curated_fields = {
-        "Hero Banner Content ID": st.text_input("Hero Banner Content ID", help="Main hero image/banner typically shown on desktop."),
-        "Body Copy - Title": st.text_input("Body Copy Title Content ID", help="Headline or main title text that introduces the body content."),
-        "Body Copy Intro": st.text_input("Body Copy Introduction Content ID", help="Intro paragraph below title, providing context."),
-        "Curated Headline 1": st.text_input("Curated Section Header 1 Content ID", help="First subheading for curated trip recommendations."),
-        "Curated Headline 2": st.text_input("Curated Section Header 2 Content ID", help="Second subheading for curated trip recommendations."),
-        "Curated Headline 3": st.text_input("Curated Section Header 3 Content ID", help="Third subheading for curated trip recommendations."),
-        "Body Copy + 50 GC": st.text_input("Body Copy Incentive Content ID", help="Message block with incentive details, e.g., gift card reward."),
-        "Body Copy - Author": st.text_input("Author Attribution Content ID", help="Author or contributor name displayed at the end of the article."),
-        "Curated Trips - Terms and Conditions": st.text_input("Terms & Conditions Content ID", help="Legal disclaimers or promotional terms."),
+    for label in landing_page_fields:
+        content_inputs[label] = st.text_input(label)
+elif template_type == "WLT Curated Trips Template":
+    for label in curated_trips_fields:
+        content_inputs[label] = st.text_input(label)
+
+# Load Base Template
+base_template = None
+if template_type == "WLT Landing Page Template":
+    with open("fixed_base_template.json") as f:
+        base_template = json.load(f)
+elif template_type == "WLT Curated Trips Template":
+    with open("exportedTemplates-47495.json") as f:
+        base_template = json.load(f)
+
+def inject_content_ids_curated(json_obj, ui_inputs):
+    mapping = {
+        "HERO - Desktop": "Hero Banner Content ID (HERO - Desktop)",
+        "Body Copy - Title": "Body Copy Title Content ID (Body Copy - Title)",
+        "Body Copy Intro": "Body Copy Introduction Content ID (Body Copy Intro)",
+        "Curated Headline 1": "Curated Section Header 1 Content ID (Curated Headline 1)",
+        "Curated Headline 2": "Curated Section Header 2 Content ID (Curated Headline 2)",
+        "Curated Headline 3": "Curated Section Header 3 Content ID (Curated Headline 3)",
+        "Body Copy + 50 GC": "Body Copy Incentive Content ID (Body Copy + 50 GC)",
+        "Body Copy - Author": "Author Attribution Content ID (Body Copy - Author)",
+        "Curated Trips - Terms and Conditions": "Terms & Conditions Content ID (Curated Trips - Terms and Conditions)"
     }
+
+    def recursive_update(node):
+        if isinstance(node, dict):
+            if node.get("type") == "REGION":
+                region_name = next((a["value"] for a in node.get("attributes", []) if a["name"] == "name"), None)
+                if region_name and region_name in mapping:
+                    content_id_label = mapping[region_name]
+                    content_id_value = ui_inputs.get(content_id_label)
+                    if content_id_value:
+                        for mod in node.get("childNodes", []):
+                            if mod.get("type") == "MODULE":
+                                for attr in mod.get("attributes", []):
+                                    if attr.get("name") == "contentId":
+                                        attr["value"] = content_id_value
+            for v in node.values():
+                recursive_update(v)
+        elif isinstance(node, list):
+            for item in node:
+                recursive_update(item)
+
+    recursive_update(json_obj)
+
+# Button to generate and download JSON
+st.markdown("---")
+if st.button("Generate Template JSON"):
+    try:
+        populated_template = base_template.copy()
+
+        # Update fields
+        if template_type == "WLT Landing Page Template":
+            populated_template[0]["name"] = template_name
+            populated_template[0]["title"] = page_title
+            populated_template[0]["header"] = header_text
+            populated_template[0]["brand"] = brand
+            populated_template[0]["pos"] = pos
+            populated_template[0]["locale"] = locale
+
+            populated_template[0]["heroBannerContentId"] = content_inputs["Hero Banner Content ID"]
+            populated_template[0]["rtb1ContentId"] = content_inputs["RTB 1 Content ID"]
+            populated_template[0]["rtb2ContentId"] = content_inputs["RTB 2 Content ID"]
+            populated_template[0]["rtb3ContentId"] = content_inputs["RTB 3 Content ID"]
+            populated_template[0]["tile1ContentId"] = content_inputs["Tile 1 Content ID"]
+            populated_template[0]["tile2ContentId"] = content_inputs["Tile 2 Content ID"]
+
+        elif template_type == "WLT Curated Trips Template":
+            inject_content_ids_curated(populated_template, content_inputs)
+
+        json_str = json.dumps(populated_template, indent=4)
+        st.download_button("📥 Download JSON", data=json_str, file_name="generated_template.json", mime="application/json")
+    except Exception as e:
+        st.error(f"⚠️ Error generating template: {repr(e)}")
