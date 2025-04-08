@@ -8,7 +8,7 @@ EXPEDIA_BLUE = "#00355F"
 PLANE_ICON = "✈️"
 
 # --- Page Config ---
-st.set_page_config(layout="centered")
+st.set_page_config(layout="wide")
 
 # --- Title with Travel Theme ---
 st.markdown(f"""
