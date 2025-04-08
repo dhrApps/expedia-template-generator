@@ -6,7 +6,7 @@ st.set_page_config(layout="centered")
 
 st.markdown("""
 <div style="background-color:#00355F;padding:30px;border-radius:10px;margin-bottom:20px;">
-    <h1 style="color:white;text-align:center;">✈️ WLT Template Generator</h1>
+    <h1 style="color:white;text-align:center;">Template Generator</h1>
 </div>
 """, unsafe_allow_html=True)
 
